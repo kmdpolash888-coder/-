@@ -18,7 +18,7 @@
             color: #2c3e50;
             line-height: 1.6;
         }
-        /* হেডার ডিজাইন (স্ক্রিনশটের সাথে হুবহু মিল রেখে) */
+        /* হেডার ডিজাইন */
         header {
             background: #0b6623;
             padding: 15px 20px;
@@ -53,10 +53,11 @@
             align-items: center;
             gap: 8px;
             border: 1px solid #58d68d;
+            text-decoration: none;
         }
         
         .container {
-            max-width: 600px;
+            max-width: 650px;
             margin: 20px auto;
             padding: 0 15px;
         }
@@ -69,6 +70,7 @@
             border-radius: 10px;
             margin-bottom: 25px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            animation: fadeIn 1s ease-in-out;
         }
         .live-review-title {
             font-size: 0.95rem;
@@ -182,6 +184,20 @@
             background: #219653;
         }
 
+        /* অতিরিক্ত সেকশন ও হেল্পলাইন নোট */
+        .info-box {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        .info-box h3 {
+            color: #0b6623;
+            margin-bottom: 10px;
+        }
+
         /* ফুটার ও সিক্রেট ট্রিগার */
         .footer {
             text-align: center;
@@ -211,6 +227,7 @@
             border-radius: 12px;
             width: 350px;
             text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
         }
         .login-box input {
             width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem;
@@ -247,6 +264,16 @@
         .form-control {
             width: 100%; padding: 10px; margin-bottom: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem;
         }
+        .admin-item-card {
+            background: #fff;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
     </style>
 </head>
 <body>
@@ -257,10 +284,10 @@
             <div class="logo-box-wrapper">
                 <div class="logo" id="siteLogoText">🌿 আয়ুর্বেদিক ও হোমিওপ্যাথি চিকিৎসালয়</div>
             </div>
-            <div class="hotline-box">
+            <a href="tel:01910532834" class="hotline-box">
                 <i class="fa-solid fa-phone-volume"></i> 
                 <span>হটলাইন: <strong id="siteHotlineText">01910-532834</strong></span>
-            </div>
+            </a>
         </header>
 
         <div class="container">
@@ -274,25 +301,15 @@
                 </div>
             </div>
 
-            <!-- কম্বো প্যাকেজ মূল কন্টেন্ট কার্ড (স্ক্রিনশট ডিজাইন অনুযায়ী) -->
-            <div class="combo-card">
-                <div class="smart-badge">Smart Combo Package</div>
-                <div class="combo-title" id="comboTitleText">📦 ১. স্পেশাল প্রিমিয়াম কম্বো প্যাকেজ (বয়স ২৩ থেকে ৭০ বছর)</div>
-                <div class="combo-subtitle" id="comboSubText">শক্তি, সহনশীলতা ও পারফরম্যান্সের সম্পূর্ণ সমাধান</div>
+            <!-- কম্বো প্যাকেজ সমূহ (ডায়নামিক লিস্ট) -->
+            <div id="comboPackagesContainer">
+                <!-- এখানে ডায়নামিক কম্বো প্যাক রেন্ডার হবে -->
+            </div>
 
-                <!-- মূল্য ও ডিসকাউন্ট বক্স -->
-                <div class="price-inner-box">
-                    <div class="old-price" id="oldPriceText">পূর্বের মূল্য: ৪,৫০০ টাকা</div>
-                    <div class="current-price" id="currentPriceText">বর্তমান মূল্য: ৩,৫০৪ টাকা</div>
-                    <div class="discount-pill">ডিসকাউন্ট অফার!</div>
-                </div>
-
-                <!-- মানসিক ও শারীরিক উপকারিতা বক্স -->
-                <div class="benefits-section" id="benefitsText">
-                    📝 ২. মানসিক-শারীরিক উপকারিতা: পুরুষত্বে আস্থা, আত্মবিশ্বাসে দাপট!
-                </div>
-
-                <button class="btn-order" onclick="orderCombo()"><i class="fa-brands fa-whatsapp"></i> অর্ডার করতে ক্লিক করুন</button>
+            <!-- অতিরিক্ত গাইডলাইন বা তথ্য বক্স -->
+            <div class="info-box">
+                <h3><i class="fa-solid fa-shield-halved"></i> শতভাগ গোপনীয়তা ও হোম ডেলিভারি</h3>
+                <p style="font-size: 0.95rem; color: #555; margin-top: 5px;">আমরা সুন্দরবন কুরিয়ার ও এসএ পরিবহনের মাধ্যমে সারা বাংলাদেশে অত্যন্ত গোপনীয়তার সাথে পার্সেল পৌঁছে দেই। ক্যাশ অন ডেলিভারি সুবিধা উপলব্ধ।</p>
             </div>
         </div>
 
@@ -325,8 +342,9 @@
                 </div>
             </div>
 
+            <!-- ১. সাধারণ সেটিংস এডিট -->
             <div class="form-section">
-                <h3>ওয়েবসাইট ও কম্বো প্যাকেজ তথ্য পরিবর্তন করুন</h3>
+                <h3>১. ওয়েবসাইট ও লাইভ রিভিউ সেটিংস</h3>
                 <label>ওয়েবসাইটের নাম:</label>
                 <input type="text" id="editSiteName" class="form-control">
                 
@@ -336,38 +354,60 @@
                 <label>লাইভ রিভিউ টেক্সট:</label>
                 <textarea id="editReview" class="form-control" rows="2"></textarea>
 
-                <label>কম্বো প্যাকেজের শিরোনাম:</label>
-                <input type="text" id="editComboTitle" class="form-control">
+                <button class="btn-primary" onclick="saveGeneralSettings()">সাধারণ সেটিংস আপডেট করুন</button>
+            </div>
 
-                <label>উপকারিতা বিবরণ:</label>
-                <input type="text" id="editComboSub" class="form-control">
+            <!-- ২. নতুন কম্বো প্যাক অ্যাড বা এডিট ফর্ম -->
+            <div class="form-section">
+                <h3 id="formHeading">২. নতুন কম্বো প্যাকেজ বা অফার যোগ করুন</h3>
+                <input type="hidden" id="editIndex" value="-1">
+                
+                <label>প্যাকেজ টাইটেল (যেমন: ১. স্পেশাল প্রিমিয়াম কম্বো...):</label>
+                <input type="text" id="inputTitle" class="form-control">
+
+                <label>সাব-টাইটেল বা বিবরণ:</label>
+                <input type="text" id="inputSub" class="form-control">
 
                 <label>পূর্বের মূল্য:</label>
-                <input type="text" id="editOldPrice" class="form-control">
+                <input type="text" id="inputOldPrice" class="form-control">
 
                 <label>বর্তমান মূল্য:</label>
-                <input type="text" id="editCurrentPrice" class="form-control">
+                <input type="text" id="inputCurrentPrice" class="form-control">
 
                 <label>উপকারিতা পয়েন্ট:</label>
-                <input type="text" id="editBenefits" class="form-control">
+                <input type="text" id="inputBenefits" class="form-control">
 
-                <button class="btn-primary" onclick="saveSettings()">সফলভাবে আপডেট করুন</button>
+                <button class="btn-primary" onclick="saveComboPackage()">প্যাকেজ সেভ বা আপডেট করুন</button>
+            </div>
+
+            <!-- ৩. বিদ্যমান কম্বো প্যাক তালিকা ও ডিলিট/এডিট অপশন -->
+            <div class="form-section">
+                <h3>৩. বিদ্যমান কম্বো প্যাকেজ ম্যানেজমেন্ট</h3>
+                <div id="adminComboList">
+                    <!-- লিস্ট রেন্ডার হবে -->
+                </div>
             </div>
         </div>
     </div>
 
     <!-- জাভাস্ক্রিপ্ট কোড -->
     <script>
+        // ডিফল্ট ডেটা স্টোরেজ
         let siteData = JSON.parse(localStorage.getItem('siteData')) || {
             name: "🌿 আয়ুর্বেদিক ও হোমিওপ্যাথি চিকিৎসালয়",
             hotline: "01910-532834",
-            review: "\"বয়স প্রায় ৫০, তবুও এই কোর্সটি নেওয়ার পর মনে হচ্ছে যেন তারুণ্য ফিরে পেয়েছি। অসাধারণ ফলাফল!\" – মোতালেব হোসেন, রংপুর",
-            comboTitle: "📦 ১. স্পেশাল প্রিমিয়াম কম্বো প্যাকেজ (বয়স ২৩ থেকে ৭০ বছর)",
-            comboSub: "শক্তি, সহনশীলতা ও পারফরম্যান্সের সম্পূর্ণ সমাধান",
-            oldPrice: "পূর্বের মূল্য: ৪,৫০০ টাকা",
-            currentPrice: "বর্তমান মূল্য: ৩,৫০৪ টাকা",
-            benefits: "📝 ২. মানসিক-শারীরিক উপকারিতা: পুরুষত্বে আস্থা, আত্মবিশ্বাসে দাপট!"
+            review: "\"বয়স প্রায় ৫০, তবুও এই কোর্সটি নেওয়ার পর মনে হচ্ছে যেন তারুণ্য ফিরে পেয়েছি। অসাধারণ ফলাফল!\" – মোতালেব হোসেন, রংপুর"
         };
+
+        let comboPackages = JSON.parse(localStorage.getItem('comboPackages')) || [
+            {
+                title: "📦 ১. স্পেশাল প্রিমিয়াম কম্বো প্যাকেজ (বয়স ২৩ থেকে ৭০ বছর)",
+                sub: "শক্তি, সহনশীলতা ও পারফরম্যান্সের সম্পূর্ণ সমাধান",
+                oldPrice: "পূর্বের মূল্য: ৪,৫০০ টাকা",
+                currentPrice: "বর্তমান মূল্য: ৩,৫০৪ টাকা",
+                benefits: "📝 ২. মানসিক-শারীরিক উপকারিতা: পুরুষত্বে আস্থা, আত্মবিশ্বাসে দাপট!"
+            }
+        ];
 
         let clickCount = 0;
         const myEmail = "polash3305@gmail.com";
@@ -382,15 +422,37 @@
             document.getElementById('siteLogoText').innerText = siteData.name;
             document.getElementById('siteHotlineText').innerText = siteData.hotline;
             document.getElementById('liveReviewText').innerText = siteData.review;
-            document.getElementById('comboTitleText').innerText = siteData.comboTitle;
-            document.getElementById('comboSubText').innerText = siteData.comboSub;
-            document.getElementById('oldPriceText').innerText = siteData.oldPrice;
-            document.getElementById('currentPriceText').innerText = siteData.currentPrice;
-            document.getElementById('benefitsText').innerText = siteData.benefits;
+
+            let container = document.getElementById('comboPackagesContainer');
+            container.innerHTML = "";
+
+            comboPackages.forEach((combo, index) => {
+                container.innerHTML += `
+                    <div class="combo-card">
+                        <div class="smart-badge">Smart Combo Package</div>
+                        <div class="combo-title">${combo.title}</div>
+                        <div class="combo-subtitle">${combo.sub}</div>
+
+                        <div class="price-inner-box">
+                            <div class="old-price">${combo.oldPrice}</div>
+                            <div class="current-price">${combo.currentPrice}</div>
+                            <div class="discount-pill">ডিসকাউন্ট অফার!</div>
+                        </div>
+
+                        <div class="benefits-section">
+                            ${combo.benefits}
+                        </div>
+
+                        <button class="btn-order" onclick="orderCombo('${combo.title}', '${combo.currentPrice}')">
+                            <i class="fa-brands fa-whatsapp"></i> অর্ডার করতে ক্লিক করুন
+                        </button>
+                    </div>
+                `;
+            });
         }
 
-        function orderCombo() {
-            let msg = `আসসালামু আলাইকুম, আমি এই কম্বো প্যাকটি অর্ডার করতে চাই: *${siteData.comboTitle}* (${siteData.currentPrice})। দয়া করে বিস্তারিত কনফার্ম করুন।`;
+        function orderCombo(title, price) {
+            let msg = `আসসালামু আলাইকুম, আমি এই কম্বো প্যাকটি অর্ডার করতে চাই: *${title}* (${price})। দয়া করে বিস্তারিত কনফার্ম করুন।`;
             window.open(`https://wa.me/8801910532834?text=${encodeURIComponent(msg)}`, '_blank');
         }
 
@@ -415,7 +477,7 @@
             if (email === myEmail && pass === myPass) {
                 document.getElementById('loginModal').style.display = 'none';
                 document.getElementById('adminDashboard').style.display = 'block';
-                loadAdminForm();
+                loadAdminPanelData();
                 document.getElementById('emailInput').value = '';
                 document.getElementById('passInput').value = '';
             } else {
@@ -430,33 +492,97 @@
 
         function logoutAdmin() {
             document.getElementById('adminDashboard').style.display = 'none';
-            alert('লগআউট করা হয়েছে।');
+            alert('সফলভাবে লগআউট করা হয়েছে।');
         }
 
-        function loadAdminForm() {
+        function loadAdminPanelData() {
             document.getElementById('editSiteName').value = siteData.name;
             document.getElementById('editHotline').value = siteData.hotline;
             document.getElementById('editReview').value = siteData.review;
-            document.getElementById('editComboTitle').value = siteData.comboTitle;
-            document.getElementById('editComboSub').value = siteData.comboSub;
-            document.getElementById('editOldPrice').value = siteData.oldPrice;
-            document.getElementById('editCurrentPrice').value = siteData.currentPrice;
-            document.getElementById('editBenefits').value = siteData.benefits;
+
+            let adminList = document.getElementById('adminComboList');
+            adminList.innerHTML = "";
+
+            comboPackages.forEach((combo, index) => {
+                adminList.innerHTML += `
+                    <div class="admin-item-card">
+                        <div>
+                            <strong>${combo.title}</strong><br>
+                            <small style="color:red;">${combo.currentPrice}</small>
+                        </div>
+                        <div>
+                            <button onclick="editCombo(${index})" style="background:#3498db; color:white; border:none; padding:6px 12px; border-radius:4px; cursor:pointer;">এডিট</button>
+                            <button onclick="deleteCombo(${index})" style="background:#e74c3c; color:white; border:none; padding:6px 12px; border-radius:4px; cursor:pointer; margin-left:5px;">ডিলিট</button>
+                        </div>
+                    </div>
+                `;
+            });
         }
 
-        function saveSettings() {
+        function saveGeneralSettings() {
             siteData.name = document.getElementById('editSiteName').value;
             siteData.hotline = document.getElementById('editHotline').value;
             siteData.review = document.getElementById('editReview').value;
-            siteData.comboTitle = document.getElementById('editComboTitle').value;
-            siteData.comboSub = document.getElementById('editComboSub').value;
-            siteData.oldPrice = document.getElementById('editOldPrice').value;
-            siteData.currentPrice = document.getElementById('editCurrentPrice').value;
-            siteData.benefits = document.getElementById('editBenefits').value;
 
             localStorage.setItem('siteData', JSON.stringify(siteData));
-            alert('সফলভাবে আপডেট করা হয়েছে!');
+            alert('সাধারণ সেটিংস সফলভাবে আপডেট হয়েছে!');
             renderSite();
+        }
+
+        function saveComboPackage() {
+            let title = document.getElementById('inputTitle').value;
+            let sub = document.getElementById('inputSub').value;
+            let oldPrice = document.getElementById('inputOldPrice').value;
+            let currentPrice = document.getElementById('inputCurrentPrice').value;
+            let benefits = document.getElementById('inputBenefits').value;
+            let editIndex = document.getElementById('editIndex').value;
+
+            if(!title || !currentPrice) {
+                alert('কম্বো প্যাকেজের শিরোনাম এবং বর্তমান মূল্য আবশ্যক!');
+                return;
+            }
+
+            let newCombo = { title, sub, oldPrice, currentPrice, benefits };
+
+            if(editIndex === "-1") {
+                comboPackages.push(newCombo);
+            } else {
+                comboPackages[editIndex] = newCombo;
+                document.getElementById('editIndex').value = "-1";
+            }
+
+            localStorage.setItem('comboPackages', JSON.stringify(comboPackages));
+            alert('কম্বো প্যাকেজ সফলভাবে সংরক্ষিত হয়েছে!');
+
+            // ফর্ম ক্লিয়ার
+            document.getElementById('inputTitle').value = "";
+            document.getElementById('inputSub').value = "";
+            document.getElementById('inputOldPrice').value = "";
+            document.getElementById('inputCurrentPrice').value = "";
+            document.getElementById('inputBenefits').value = "";
+
+            loadAdminPanelData();
+            renderSite();
+        }
+
+        function editCombo(index) {
+            let combo = comboPackages[index];
+            document.getElementById('inputTitle').value = combo.title;
+            document.getElementById('inputSub').value = combo.sub;
+            document.getElementById('inputOldPrice').value = combo.oldPrice;
+            document.getElementById('inputCurrentPrice').value = combo.currentPrice;
+            document.getElementById('inputBenefits').value = combo.benefits;
+            document.getElementById('editIndex').value = index;
+            alert('প্যাকেজের তথ্য ফর্মে লোড হয়েছে। পরিবর্তন করে সেভ বাটনে ক্লিক করুন।');
+        }
+
+        function deleteCombo(index) {
+            if(confirm('আপনি কি নিশ্চিতভাবে এই প্যাকেজটি ডিলিট করতে চান?')) {
+                comboPackages.splice(index, 1);
+                localStorage.setItem('comboPackages', JSON.stringify(comboPackages));
+                loadAdminPanelData();
+                renderSite();
+            }
         }
     </script>
 </body>
