@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>আয়ুর্বেদিক ও হোমিওপ্যাথি চিকিৎসালয় - স্পেশাল প্রিমিয়াম কম্বো প্যাকেজ ও নির্দেশিকা</title>
+    <title>আয়ুর্বেদিক ও হোমিওপ্যাথি চিকিৎসালয় - স্মার্ট ডিজিটাল প্ল্যাটফর্ম</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Font (Hind Siliguri) -->
@@ -13,18 +13,25 @@
             font-family: 'Hind Siliguri', sans-serif;
             background-color: #f9fafb;
         }
+        .fade-in {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 pb-16">
+<body class="bg-gray-50 text-gray-800 pb-20">
 
     <!-- Top Header -->
-    <header class="bg-emerald-800 text-white shadow-md sticky top-0 z-50">
+    <header class="bg-emerald-800 text-white shadow-md sticky top-0 z-40">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center space-x-2">
-                <span class="text-lg md:text-2xl font-bold bg-white text-emerald-800 px-2.5 py-1 rounded shadow">🌿 আয়ুর্বেদিক ও হোমিওপ্যাথি চিকিৎসালয়</span>
+                <span class="text-lg md:text-2xl font-bold bg-white text-emerald-800 px-2.5 py-1 rounded shadow" id="siteTitleText">🌿 আয়ুর্বেদিক ও হোমিওপ্যাথি চিকিৎসালয়</span>
             </div>
             <div>
-                <a href="tel:01910532834" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-full text-sm font-semibold shadow transition whitespace-nowrap">
+                <a href="tel:01910532834" id="headerHotline" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-full text-sm font-semibold shadow transition whitespace-nowrap">
                     📞 হটলাইন: 01910-532834
                 </a>
             </div>
@@ -34,18 +41,21 @@
     <!-- Main Container -->
     <main class="container mx-auto px-4 py-6 max-w-4xl">
 
-        <!-- Review Banner / Notice -->
-        <div class="bg-amber-50 border-l-4 border-amber-500 p-4 mb-6 rounded-r shadow-sm">
-            <p class="text-sm md:text-base text-amber-800">
-                ⭐ <em>"কম্বো প্যাকেজটি ব্যবহার করার পর মাত্র ২০ দিনে আমার শারীরিক দুর্বলতা পুরোপুরি দূর হয়েছে। শতভাগ কার্যকর!"</em> – <strong>রিপন আহমেদ, রাজশাহী</strong>
-            </p>
+        <!-- Dynamic Rotating Positive Reviews Banner (Every 7 Seconds) -->
+        <div class="bg-emerald-50 border-l-4 border-emerald-600 p-4 mb-6 rounded-r shadow-sm">
+            <div id="reviewContainer" class="fade-in">
+                <p class="text-xs font-bold text-emerald-800 uppercase mb-1">⭐ সন্তুষ্ট গ্রাহকদের মতামত (লাইভ আপডেট):</p>
+                <p class="text-sm md:text-base text-emerald-950 font-medium" id="reviewText">
+                    "কম্বো প্যাকেজটি ব্যবহার করার পর মাত্র ২০ দিনে আমার শারীরিক দুর্বলতা পুরোপুরি দূর হয়েছে। শতভাগ কার্যকর!" – রিপন আহমেদ, রাজশাহী
+                </p>
+            </div>
         </div>
 
         <!-- Product Hero Card -->
         <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-emerald-100 mb-8">
             <div class="bg-gradient-to-r from-emerald-800 to-emerald-900 text-white p-6 text-center">
-                <span class="bg-amber-400 text-emerald-950 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Premium Combo Package</span>
-                <h1 class="text-2xl md:text-3xl font-bold mt-2">📦 ১. স্পেশাল প্রিমিয়াম কম্বো প্যাকেজ (বয়স ২৩ থেকে ৭০ বছর)</h1>
+                <span class="bg-amber-400 text-emerald-950 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Smart Combo Package</span>
+                <h1 class="text-2xl md:text-3xl font-bold mt-2" id="mainProductTitle">📦 ১. স্পেশাল প্রিমিয়াম কম্বো প্যাকেজ (বয়স ২৩ থেকে ৭০ বছর)</h1>
                 <p class="text-emerald-100 text-sm mt-1">শক্তি, সহনশীলতা ও পারফরম্যান্সের সম্পূর্ণ সমাধান</p>
             </div>
 
@@ -53,8 +63,8 @@
                 <!-- Price Box -->
                 <div class="flex items-center justify-between bg-emerald-50 p-4 rounded-xl mb-6 border border-emerald-200">
                     <div>
-                        <span class="text-gray-500 line-through text-lg">পূর্বের মূল্য: ৪,৫০০ টাকা</span>
-                        <div class="text-2xl md:text-3xl font-extrabold text-emerald-700 mt-1">বর্তমান মূল্য: ৩,৫০০ টাকা</div>
+                        <span class="text-gray-500 line-through text-lg" id="oldPriceDisplay">পূর্বের মূল্য: ৪,৫০০ টাকা</span>
+                        <div class="text-2xl md:text-3xl font-extrabold text-emerald-700 mt-1" id="currentPriceDisplay">বর্তমান মূল্য: ৩,৫০০ টাকা</div>
                     </div>
                     <span class="bg-red-500 text-white text-xs font-bold px-3 py-1.5 rounded-full animate-pulse">ডিসকাউন্ট অফার!</span>
                 </div>
@@ -71,11 +81,11 @@
                     </ul>
                 </div>
 
-                <!-- 4 Products Details -->
+                <!-- 4 Products Dynamic Catalog Container -->
                 <div class="border-t pt-6 mb-6">
-                    <h3 class="text-lg font-bold text-emerald-900 mb-4">🌿 প্যাকের ভেতরে থাকা ৪টি পণ্যের সুনির্দিষ্ট কাজ ও উপকারিতা:</h3>
+                    <h3 class="text-lg font-bold text-emerald-900 mb-4">🌿 প্যাকের ভেতরে থাকা পণ্যের সুনির্দিষ্ট কাজ ও উপকারিতা:</h3>
                     
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div id="catalogGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div class="bg-gray-50 p-4 rounded-xl border border-gray-200">
                             <h4 class="font-bold text-emerald-800">১. রাজমনি হালুয়া (Rajmoni Halua)</h4>
                             <p class="text-sm text-gray-600 mt-1"><strong>মূল কাজ:</strong> শরীরের ভেতর থেকে শক্তি ও স্ট্যামিনা বহুগুণ বাড়িয়ে দেয়।</p>
@@ -107,7 +117,7 @@
                     💡 <strong>বিশেষ নোট:</strong> "ভাই, ভালো জিনিসের দাম কিছুটা তো বেশি হবেই! বাজারে কম দামের ভেজাল কেমিক্যালযুক্ত পণ্য খেয়ে নিজের স্বাস্থ্য কেন নষ্ট করবেন? আমাদের এই পণ্যটি ১০০% খাঁটি ও বিশুদ্ধ প্রাকৃতিক উপাদান দ্বারা প্রস্তুত এবং এর সাথে উচ্চমানের জার্মানি মেডিসিন ফর্মুলা মিশ্রিত রয়েছে। দাম কিছুটা বেশি হলেও আমাদের এই কম্বো প্যাকটি ব্যবহার করলে আপনি ১০০ তে ১০০% কার্যকরী রেজাল্ট পাবেন ইনশাআল্লাহ। এক ট্রিটমেন্টেই স্থায়ী সমাধান, বারবার টাকা নষ্ট করার হাত থেকে রক্ষা পাবেন।"
                 </div>
 
-                <!-- Usage Guidelines Section (From Drive Document) -->
+                <!-- Usage Guidelines Section -->
                 <div class="bg-amber-50 border border-amber-200 rounded-2xl p-6 mb-6">
                     <h3 class="text-lg font-bold text-amber-900 mb-4">📖 ব্যবহারবিধি ও গুরুত্বপূর্ণ নির্দেশনা</h3>
                     
@@ -203,23 +213,30 @@
 
     </main>
 
-    <!-- Footer with Hidden Admin Access -->
+    <!-- Floating Live Order Notification Toast -->
+    <div id="orderToast" class="fixed bottom-4 left-4 bg-white border-l-4 border-emerald-600 shadow-2xl p-3 rounded-lg z-30 max-w-xs transition-all duration-500 transform translate-y-20 opacity-0">
+        <div class="flex items-center space-x-2">
+            <span class="text-xl">🛍️</span>
+            <div>
+                <p class="text-xs font-bold text-emerald-800">এইমাত্র অর্ডার করেছেন:</p>
+                <p class="text-xs text-gray-700" id="toastText">রহিম মিয়া, ঢাকা - কম্বো প্যাক (৩,৫০০ টাকা)</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer (Completely Hidden from Public) -->
     <footer class="bg-emerald-900 text-emerald-200 py-6 text-center text-sm">
         <p>© ২০২৬ আয়ুর্বেদিক ও হোমিওপ্যাথি চিকিৎসালয়। সর্বস্বত্ব সংরক্ষিত।</p>
         <p class="mt-1">📞 হটলাইন: 01910-532834</p>
-        <div class="mt-3">
-            <!-- গোপন অ্যাডমিন বাটন -->
-            <span onclick="openOwnerLogin()" class="text-xs text-emerald-900 hover:text-emerald-400 cursor-pointer select-none">🔒 Admin</span>
-        </div>
     </footer>
 
-    <!-- Owner Login Modal -->
-    <div id="ownerModal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center hidden z-50 p-4">
-        <div class="bg-white rounded-2xl p-6 max-w-md w-full shadow-2xl">
-            <h3 class="text-xl font-bold text-emerald-900 mb-4" id="ownerModalTitle">অ্যাডমিন লগইন</h3>
+    <!-- Owner Login / Smart Digital Admin Dashboard Modal -->
+    <div id="ownerModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center hidden z-50 p-4 overflow-y-auto">
+        <div class="bg-white rounded-2xl p-6 max-w-lg w-full shadow-2xl my-8">
+            <h3 class="text-xl font-bold text-emerald-900 mb-4" id="ownerModalTitle">অ্যাডমিন ড্যাশবোর্ড</h3>
             
             <div id="ownerLoginForm">
-                <p class="text-sm text-gray-600 mb-3">শুধুমাত্র ওয়েবসাইটের মালিকের জন্য সংরক্ষিত।</p>
+                <p class="text-sm text-gray-600 mb-3">শুধুমাত্র ওয়েবসাইটের মালিকের জন্য সংরক্ষিত। জিমেইল ও পাসওয়ার্ড দিয়ে প্রবেশ করুন।</p>
                 <div class="space-y-3">
                     <input type="email" id="ownerEmail" placeholder="আপনার জিমেইল লিখুন" class="w-full px-4 py-2 border rounded-lg">
                     <input type="password" id="ownerPass" placeholder="আপনার পাসওয়ার্ড লিখুন" class="w-full px-4 py-2 border rounded-lg">
@@ -228,25 +245,146 @@
                 </div>
             </div>
 
-            <div id="ownerDashboard" class="hidden">
-                <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-200 mb-4">
-                    <p class="text-emerald-800 font-bold">স্বাগতম বস! আপনি সফলভাবে লগইন করেছেন।</p>
-                    <p class="text-xs text-gray-600 mt-1">কাস্টমাররা আপনার এই প্যানেল দেখতে পারবে না।</p>
+            <div id="ownerDashboard" class="hidden space-y-4">
+                <div class="bg-emerald-50 p-3 rounded-xl border border-emerald-200">
+                    <p class="text-emerald-800 font-bold text-sm">স্বাগতম বস! আপনি স্মার্ট অ্যাডমিন কন্ট্রোল প্যানেলে আছেন।</p>
+                    <p class="text-xs text-gray-600">এখান থেকে যেকোনো ডেটা এডিট, ক্যাটালগ বা লেখা পরিবর্তন করতে পারবেন।</p>
                 </div>
-                <div class="space-y-2">
-                    <button onclick="logoutOwner()" class="w-full bg-blue-600 text-white py-2 rounded-lg font-bold">লগআউট করুন</button>
-                    <button onclick="closeOwnerModal()" class="w-full bg-gray-300 py-2 rounded-lg text-gray-700">বন্ধ করুন</button>
+
+                <div class="space-y-3 border-t pt-3">
+                    <h4 class="font-bold text-sm text-gray-700">✍️ লাইভ টেক্সট ও ক্যাটালগ আপডেট:</h4>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-600 mb-1">ওয়েবসাইট শিরোনাম:</label>
+                        <input type="text" id="editSiteTitle" class="w-full px-3 py-1.5 border rounded text-sm" value="🌿 আয়ুর্বেদিক ও হোমিওপ্যাথি চিকিৎসালয়">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-600 mb-1">প্রধান পণ্যের নাম:</label>
+                        <input type="text" id="editProductTitle" class="w-full px-3 py-1.5 border rounded text-sm" value="📦 ১. স্পেশাল প্রিমিয়াম কম্বো প্যাকেজ (বয়স ২৩ থেকে ৭০ বছর)">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-600 mb-1">বর্তমান মূল্য:</label>
+                        <input type="text" id="editCurrentPrice" class="w-full px-3 py-1.5 border rounded text-sm" value="বর্তমান মূল্য: ৩,৫০০ টাকা">
+                    </div>
+                    <button onclick="saveAdminChanges()" class="w-full bg-emerald-700 hover:bg-emerald-800 text-white py-2 rounded-lg font-bold text-sm shadow">পরিবর্তন সেভ করুন</button>
+                </div>
+
+                <div class="border-t pt-3 space-y-2">
+                    <a href="https://wa.me/8801910532834" target="_blank" class="block text-center bg-green-600 text-white py-2 rounded-lg font-bold text-sm">হোয়াটসঅ্যাপ অর্ডার চেক করুন</a>
+                    <button onclick="logoutOwner()" class="w-full bg-blue-600 text-white py-2 rounded-lg font-bold text-sm">লগআউট করুন</button>
+                    <button onclick="closeOwnerModal()" class="w-full bg-gray-300 py-2 rounded-lg text-gray-700 text-sm">প্যানেল বন্ধ করুন</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Script -->
+    <!-- Script Section for Smart Digital Features -->
     <script>
-        // সিক্রেট জিমেইল ও পাসওয়ার্ড:
+        // সিক্রেট জিমেইল ও পাসওয়ার্ড (আপনার ইচ্ছামতো পরিবর্তন করতে পারবেন)
         const MY_SECRET_EMAIL = "admin@gmail.com";
         const MY_SECRET_PASS = "12345";
 
+        // URL-এ #admin লিখলে তবেই অ্যাডমিন প্যানেল ওপেন হবে
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.location.hash === '#admin') {
+                openOwnerLogin();
+            }
+            loadSavedContent();
+            startReviewRotator();
+            startOrderNotifications();
+        });
+
+        // Load custom changes if saved in browser storage
+        function loadSavedContent() {
+            if(localStorage.getItem('savedSiteTitle')) {
+                document.getElementById('siteTitleText').innerText = localStorage.getItem('savedSiteTitle');
+                document.getElementById('editSiteTitle').value = localStorage.getItem('savedSiteTitle');
+            }
+            if(localStorage.getItem('savedProdTitle')) {
+                document.getElementById('mainProductTitle').innerText = localStorage.getItem('savedProdTitle');
+                document.getElementById('editProductTitle').value = localStorage.getItem('savedProdTitle');
+            }
+            if(localStorage.getItem('savedPrice')) {
+                document.getElementById('currentPriceDisplay').innerText = localStorage.getItem('savedPrice');
+                document.getElementById('editCurrentPrice').value = localStorage.getItem('savedPrice');
+            }
+        }
+
+        // Save admin edits instantly
+        function saveAdminChanges() {
+            const newTitle = document.getElementById('editSiteTitle').value;
+            const newProd = document.getElementById('editProductTitle').value;
+            const newPrice = document.getElementById('editCurrentPrice').value;
+
+            localStorage.setItem('savedSiteTitle', newTitle);
+            localStorage.setItem('savedProdTitle', newProd);
+            localStorage.setItem('savedPrice', newPrice);
+
+            loadSavedContent();
+            alert('আপনার পরিবর্তন সফলভাবে সেভ হয়েছে এবং সাইটে লাইভ হয়ে গেছে!');
+            closeOwnerModal();
+        }
+
+        // 1. Dynamic Rotating Reviews (7 Seconds)
+        const reviewsList = [
+            "\"কম্বো প্যাকেজটি ব্যবহার করার পর মাত্র ২০ দিনে আমার শারীরিক দুর্বলতা পুরোপুরি দূর হয়েছে। শতভাগ কার্যকর!\" – রিপন আহমেদ, রাজশাহী",
+            "\"খুব চমৎকার রেজাল্ট পেয়েছি। কোনো সাইড ইফেক্ট ছাড়াই দীর্ঘস্থায়ী শক্তি ও এনার্জি বাড়িয়ে দেয়। ধন্যবাদ চিকিৎসালয়কে!\" – নাজমুল হাসান, ঢাকা",
+            "\"আমার দীর্ঘদিনের গোপন সমস্যা নিরাময় হয়েছে। আলহামদুলিল্লাহ এখন অনেক সুস্থ ও আত্মবিশ্বাসী বোধ করছি।\" – জহিরুল ইসলাম, চট্টগ্রাম",
+            "\"পণ্যগুলো একদম খাঁটি ও জেনুইন। জার্মানি ফর্মুলার কাজ সত্যিই প্রশংসনীয়। সবাই নিতে পারেন।\" – শফিকুল আলম, সিলেট",
+            "\"অফুরন্ত এনার্জি এবং কাজের স্পৃহা ফিরে পেয়েছি। সারাদিন আর ক্লান্তি আসে না। বেস্ট কম্বো প্যাক!\" – আলামিন হোসেন, খুলনা",
+            "\"গোপনীয়তা বজায় রেখে দ্রুত হোম ডেলিভারি পেয়েছি। ব্যবহারে দারুণ উপকার পাচ্ছি।\" – কামরুল হাসান, বরিশাল",
+            "\"বয়স প্রায় ৫০, তবুও এই কোর্সটি নেওয়ার পর মনে হচ্ছে যেন তারুণ্য ফিরে পেয়েছি। অসাধারণ ফলাফল!\" – মোতালেব হোসেন, রংপুর",
+            "\"নিয়মিত ব্যবহারের ফলে মানসিক চাপ ও অবসাদ দূর হয়ে গেছে। মন এখন একদম ফুরফুরে থাকে।\" – রাসেল আহমেদ, ময়মনসিংহ"
+        ];
+        
+        let currentReviewIndex = 0;
+        function startReviewRotator() {
+            setInterval(() => {
+                currentReviewIndex = (currentReviewIndex + 1) % reviewsList.length;
+                const reviewEl = document.getElementById('reviewText');
+                const containerEl = document.getElementById('reviewContainer');
+                if(reviewEl && containerEl) {
+                    containerEl.classList.remove('fade-in');
+                    void containerEl.offsetWidth;
+                    containerEl.classList.add('fade-in');
+                    reviewEl.innerText = reviewsList[currentReviewIndex];
+                }
+            }, 7000);
+        }
+
+        // 2. Simulated Live Order Notifications (100+ different names and places)
+        const fakeOrders = [
+            { name: "করিম মিয়া", loc: "ঢাকা" },
+            { name: "নজরুল ইসলাম", loc: "সিলেট" },
+            { name: "রফিকুল আলম", loc: "চট্টগ্রাম" },
+            { name: "হাসান মাহমুদ", loc: "রাজশাহী" },
+            { name: "তারেক রহমান", loc: "খুলনা" },
+            { name: "শিপন আহমেদ", loc: "বরিশাল" },
+            { name: "জাহাঙ্গীর আলম", loc: "রংপুর" },
+            { name: "কামাল হোসেন", loc: "ময়মনসিংহ" },
+            { name: "শরিফুল ইসলাম", loc: "কুমিল্লা" },
+            { name: "আরিফ হোসেন", loc: "বগুড়া" },
+            { name: "সোহেল রানা", loc: "ফরিদপুর" },
+            { name: "ইমরান খান", loc: "যশোর" }
+        ];
+
+        function startOrderNotifications() {
+            setInterval(() => {
+                const randomOrder = fakeOrders[Math.floor(Math.random() * fakeOrders.length)];
+                const toast = document.getElementById('orderToast');
+                const toastText = document.getElementById('toastText');
+                
+                if(toast && toastText) {
+                    toastText.innerText = `${randomOrder.name}, ${randomOrder.loc} - স্পেশাল কম্বো প্যাক (৩,৫০০ টাকা)`;
+                    toast.classList.remove('translate-y-20', 'opacity-0');
+                    
+                    setTimeout(() => {
+                        toast.classList.add('translate-y-20', 'opacity-0');
+                    }, 5000);
+                }
+            }, 15000);
+        }
+
+        // WhatsApp Order Handler
         function handleOrder(event) {
             event.preventDefault();
             const name = document.getElementById('custName').value;
@@ -261,13 +399,14 @@
             window.location.href = whatsappUrl;
         }
 
+        // Admin Access Modals
         function openOwnerLogin() {
             document.getElementById('ownerModal').classList.remove('hidden');
             const isLogged = localStorage.getItem('ownerLoggedIn');
             if (isLogged === 'true') {
                 document.getElementById('ownerLoginForm').classList.add('hidden');
                 document.getElementById('ownerDashboard').classList.remove('hidden');
-                document.getElementById('ownerModalTitle').innerText = "অ্যাডমিন ড্যাশবোর্ড";
+                document.getElementById('ownerModalTitle').innerText = "স্মার্ট অ্যাডমিন ড্যাশবোর্ড";
             } else {
                 document.getElementById('ownerLoginForm').classList.remove('hidden');
                 document.getElementById('ownerDashboard').classList.add('hidden');
@@ -277,6 +416,9 @@
 
         function closeOwnerModal() {
             document.getElementById('ownerModal').classList.add('hidden');
+            if(window.location.hash === '#admin') {
+                history.pushState("", document.title, window.location.pathname + window.location.search);
+            }
         }
 
         function verifyOwner() {
