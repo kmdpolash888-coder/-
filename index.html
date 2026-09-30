@@ -63,16 +63,16 @@
                     <p class="text-[11px] text-emerald-200">প্রাকৃতিক চিকিৎসায় সুস্থ জীবনের নিশ্চয়তা</p>
                 </div>
             </div>
-            <div class="flex items-center space-x-3">
+            <div class="flex items-center space-x-2">
                 <a href="tel:01910532834" class="bg-amber-500 hover:bg-amber-600 text-emerald-950 font-bold px-3.5 py-2 rounded-full text-xs shadow transition flex items-center space-x-1.5">
                     <i class="fa-solid fa-phone-volume"></i>
-                    <span id="headerHotline">01910-532834</span>
+                    <span>হটলাইন নাম্বার: <strong id="headerHotline">01910-532834</strong></span>
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- Sidebar Drawer Menu (Matching Screenshot Reference) -->
+    <!-- Sidebar Drawer Menu -->
     <div id="sidebarOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden" onclick="toggleSidebar()"></div>
     <div id="sidebarDrawer" class="fixed top-0 left-0 bottom-0 w-80 bg-white z-50 shadow-2xl p-5 overflow-y-auto hidden">
         <div class="flex justify-between items-center border-b pb-3 mb-4">
@@ -91,7 +91,7 @@
             <li><a href="#" onclick="filterByCategory('যৌন রোগ'); toggleSidebar();" class="flex items-center space-x-3 p-2.5 rounded-lg hover:bg-emerald-50"><i class="fa-solid fa-bolt text-emerald-600"></i> <span>যৌন রোগের পণ্য তালিকা</span></a></li>
             <li><a href="#" onclick="filterByCategory('Health Care'); toggleSidebar();" class="flex items-center space-x-3 p-2.5 rounded-lg hover:bg-emerald-50"><i class="fa-solid fa-heart-pulse text-emerald-600"></i> <span>Health Care Products</span></a></li>
             <li><a href="#" onclick="filterByCategory('কম্বো প্যাকেজ'); toggleSidebar();" class="flex items-center space-x-3 p-2.5 rounded-lg hover:bg-emerald-50"><i class="fa-solid fa-box-open text-emerald-600"></i> <span>কম্বো প্যাকেজ অফার</span></a></li>
-            <li class="border-t pt-3"><a href="#" onclick="switchTab('cart'); toggleSidebar();" class="flex items-center space-x-3 p-2.5 rounded-lg hover:bg-emerald-50 text-red-600"><i class="fa-solid fa-cart-shopping"></i> <span>শপিং কার্ট দেখুন</span></a></li>
+            <li class="border-t pt-3"><a href="#" onclick="switchTab('cart'); toggleSidebar();" class="flex items-center space-x-3 p-2.5 rounded-lg hover:bg-emerald-50 text-red-600"><i class="fa-solid fa-cart-shopping"></i> <span>শপিং কার্ট ও অর্ডার ফরম</span></a></li>
         </ul>
     </div>
 
@@ -101,11 +101,11 @@
         <!-- HOME VIEW -->
         <div id="view-home" class="view-section fade-in space-y-6">
 
-            <!-- Live Review Rotator (7 Seconds Interval) -->
+            <!-- Instant Live Review Rotator (7 Seconds Interval) -->
             <div class="bg-emerald-50 border border-emerald-200 p-4 rounded-2xl shadow-md">
                 <div class="flex items-center justify-between mb-2 border-b border-emerald-200 pb-2">
                     <span class="text-xs font-bold text-amber-700 uppercase flex items-center space-x-1">
-                        <i class="fa-solid fa-star"></i> <span>সন্তুষ্ট গ্রাহকদের লাইভ মতামত (১০০০+ ভেরিফাইড রিভিউ)</span>
+                        <i class="fa-solid fa-star"></i> <span>ইনস্ট্যান্ট লাইভ রিভিউ</span>
                     </span>
                     <span class="text-[10px] bg-emerald-200 text-emerald-900 px-2.5 py-0.5 rounded-full font-bold animate-pulse">৭ সেকেন্ড আপডেট</span>
                 </div>
@@ -124,7 +124,7 @@
                 </div>
             </div>
 
-            <!-- Smart Combo Package Featured Card (Matching Screenshot Design) -->
+            <!-- Smart Combo Package Featured Card -->
             <div class="bg-emerald-900 text-white rounded-2xl p-6 shadow-2xl relative border-2 border-emerald-700">
                 <div class="absolute top-4 right-4 bg-amber-400 text-emerald-950 font-extrabold text-[11px] px-3 py-1 rounded-full uppercase shadow">
                     Smart Combo Package
@@ -191,22 +191,42 @@
             <div id="catalogProductsList" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
         </div>
 
-        <!-- CART VIEW -->
-        <div id="view-cart" class="view-section hidden fade-in">
-            <h2 class="text-xl font-bold text-emerald-900 mb-4">🛒 আপনার শপিং কার্ট</h2>
-            <div id="cartItemsContainer" class="bg-white p-4 rounded-xl shadow border mb-6">
-                <p class="text-sm text-gray-500">আপনার কার্ট খালি রয়েছে।</p>
-            </div>
-            <div class="bg-white border-2 border-emerald-500 rounded-2xl p-6 shadow-md">
-                <h3 class="text-lg font-bold text-emerald-900 mb-2">অর্ডার কনফার্ম করতে তথ্য দিন</h3>
-                <form onsubmit="handleOrder(event)" class="space-y-3">
-                    <input type="text" id="custName" required class="w-full px-3 py-2 border rounded-lg text-sm" placeholder="আপনার পূর্ণ নাম *">
-                    <input type="tel" id="custPhone" required class="w-full px-3 py-2 border rounded-lg text-sm" placeholder="মোবাইল নম্বর *">
-                    <textarea id="custAddress" required rows="2" class="w-full px-3 py-2 border rounded-lg text-sm" placeholder="সম্পূর্ণ ঠিকানা (বাসা, থানা, জেলা) *"></textarea>
-                    <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2.5 rounded-xl shadow text-sm">
-                        🛒 অর্ডার কনফার্ম করুন (WhatsApp)
-                    </button>
-                </form>
+        <!-- CART & ORDER VIEW -->
+        <div id="view-cart" class="view-section hidden fade-in space-y-6">
+            <div class="bg-white p-6 rounded-2xl shadow-md border">
+                <h2 class="text-xl font-bold text-emerald-900 mb-4 border-b pb-2 flex items-center space-x-2">
+                    <i class="fa-solid fa-cart-shopping text-emerald-700"></i>
+                    <span>আপনার শপিং কার্ট ও অর্ডার ফরম</span>
+                </h2>
+                
+                <div id="cartItemsContainer" class="mb-6">
+                    <p class="text-sm text-gray-500">আপনার কার্ট খালি রয়েছে। হোম বা ক্যাটালগ থেকে পণ্য কার্টে যোগ করুন।</p>
+                </div>
+
+                <div class="bg-emerald-50 border-2 border-emerald-500 rounded-2xl p-6 shadow-inner">
+                    <h3 class="text-base font-bold text-emerald-900 mb-3 flex items-center space-x-2">
+                        <i class="fa-solid fa-truck-fast"></i>
+                        <span>অর্ডার কনফার্ম করতে নিচের ফরমটি পূরণ করুন</span>
+                    </h3>
+                    <form onsubmit="handleOrder(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 mb-1">আপনার নাম *</label>
+                            <input type="text" id="custName" required class="w-full px-3.5 py-2.5 border rounded-xl text-sm bg-white" placeholder="আপনার পূর্ণ নাম লিখুন">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 mb-1">সচল মোবাইল নাম্বার *</label>
+                            <input type="tel" id="custPhone" required class="w-full px-3.5 py-2.5 border rounded-xl text-sm bg-white" placeholder="আপনার মোবাইল নাম্বার দিন (যেমন: 019xxxxxxxx)">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 mb-1">ঠিকানা এবং পূর্ণ ঠিকানা বক্স *</label>
+                            <textarea id="custAddress" required rows="3" class="w-full px-3.5 py-2.5 border rounded-xl text-sm bg-white" placeholder="বাসা/হোল্ডিং নম্বর, রোড, থানা, জেলা এবং সম্পূর্ণ ঠিকানা বিস্তারিত লিখুন..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 rounded-xl shadow-lg text-sm md:text-base flex items-center justify-center space-x-2 transition">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            <span>অর্ডার কনফার্ম করুন (WhatsApp-এ পাঠান)</span>
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
 
@@ -216,7 +236,7 @@
                 <h2 class="text-xl font-bold text-emerald-900">📞 যোগাযোগ ও ফ্রি পরামর্শ</h2>
                 <div class="bg-emerald-50 p-5 rounded-xl border border-emerald-200 space-y-3 text-sm">
                     <p><strong>প্রতিষ্ঠানের নাম:</strong> আয়ুর্বেদিক ও হোমিওপ্যাথি চিকিৎসালয়</p>
-                    <p><strong>হটলাইন ও ফ্রি পরামর্শ:</strong> <a href="tel:01910532834" class="text-emerald-700 font-bold text-base underline">01910-532834</a></p>
+                    <p><strong>হটলাইন নাম্বার:</strong> <a href="tel:01910532834" class="text-emerald-700 font-bold text-base underline">01910-532834</a></p>
                     <p><strong>হোয়াটসঅ্যাপ সাপোর্ট:</strong> <a href="https://wa.me/8801910532834" target="_blank" class="text-green-600 font-bold">সরাসরি চ্যাট করুন</a></p>
                 </div>
             </div>
@@ -229,7 +249,7 @@
                 <ul class="space-y-2 text-sm font-semibold">
                     <li><button onclick="switchTab('home')" class="text-emerald-800">🏠 হোম পেজ</button></li>
                     <li><button onclick="switchTab('catalog')" class="text-emerald-800">📦 প্রোডাক্ট ক্যাটালগ</button></li>
-                    <li><button onclick="switchTab('cart')" class="text-emerald-800">🛒 শপিং কার্ট</button></li>
+                    <li><button onclick="switchTab('cart')" class="text-emerald-800">🛒 শপিং কার্ট ও অর্ডার ফরম</button></li>
                     <li><button onclick="switchTab('contact')" class="text-emerald-800">📞 যোগাযোগ ও পরামর্শ</button></li>
                     <li><button onclick="toggleSidebar()" class="text-emerald-800">☰ অল ক্যাটাগরি মেনু (ড্রয়ার)</button></li>
                 </ul>
@@ -238,18 +258,18 @@
 
     </main>
 
-    <!-- 15 Seconds Interval Order Notification Toast (500+ pool) -->
+    <!-- Instant Live Confirmed Order Toast (15 Seconds Interval) -->
     <div id="orderToast" class="fixed bottom-16 left-4 bg-white border-l-4 border-emerald-600 shadow-2xl p-3 rounded-lg z-30 max-w-xs hidden transition-all duration-500">
         <div class="flex items-center space-x-2">
             <div class="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-800 font-bold text-xs">🛍️</div>
             <div>
-                <p class="text-[10px] font-bold text-emerald-800">এইমাত্র অর্ডার কনফার্ম হয়েছে (৫০০+ সফল ডেলিভারি):</p>
+                <p class="text-[10px] font-bold text-emerald-800">ইনস্ট্যান্ট লাইভ কনফার্ম অর্ডার:</p>
                 <p class="text-xs font-bold text-gray-900" id="toastText">রফিকুল ইসলাম, ঢাকা - স্পেশাল কম্বো প্যাক</p>
             </div>
         </div>
     </div>
 
-    <!-- Bottom Fixed Navigation Bar (ক্যাটালগ, কার্ট, হোম, যোগাযোগ, মেনু) -->
+    <!-- Bottom Fixed Navigation Bar -->
     <nav class="fixed bottom-0 left-0 right-0 bg-white border-t shadow-2xl z-30 flex justify-around py-2.5 text-xs font-semibold text-gray-700">
         <button onclick="switchTab('catalog')" class="flex flex-col items-center hover:text-emerald-700">
             <span class="text-lg">📁</span>
@@ -326,7 +346,7 @@
         const MY_SECRET_EMAIL = "polash3305@gmail.com";
         const MY_SECRET_PASS = "1807polash1994";
 
-        // 1000+ Positive Reviews Pool (Rotates every 7 seconds)
+        // Instant Live Reviews Pool (Rotates every 7 seconds)
         const reviewsPool = [
             { name: "মোতালেব হোসেন", loc: "রংপুর", text: "বয়স প্রায় ৫০, তবুও এই কোর্সটি নেওয়ার পর মনে হচ্ছে যেন তারুণ্য ফিরে পেয়েছি। অসাধারণ ফলাফল!", avatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100" },
             { name: "শফিকুল ইসলাম", loc: "রাজশাহী", text: "মাত্র ৭ দিন ব্যবহারের পরই দারুন পরিবর্তন বুঝতে পারছি। শতভাগ কার্যকরী ভেষজ প্যাক!", avatar: "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=100" },
@@ -345,7 +365,7 @@
             document.getElementById('reviewText').innerText = `"${r.text}"`;
         }, 7000);
 
-        // 500+ Order Notifications Pool (Rotates every 15 seconds)
+        // Instant Live Confirmed Orders Pool (Rotates every 15 seconds)
         const ordersPool = [
             "রফিকুল ইসলাম (ঢাকা) - স্পেশাল প্রিমিয়াম কম্বো প্যাক",
             "জহিরুল হক (চট্টগ্রাম) - ভেষজ এনার্জি বুস্টার প্যাক",
@@ -504,14 +524,14 @@
         function updateCartView() {
             const container = document.getElementById('cartItemsContainer');
             if(cart.length === 0) {
-                container.innerHTML = `<p class="text-sm text-gray-500">আপনার কার্ট খালি রয়েছে।</p>`;
+                container.innerHTML = `<p class="text-sm text-gray-500">আপনার কার্ট খালি রয়েছে। হোম বা ক্যাটালগ থেকে পণ্য কার্টে যোগ করুন।</p>`;
                 return;
             }
             let html = `<ul class="space-y-3 mb-4">`;
             cart.forEach((item, i) => {
                 html += `<li class="flex justify-between items-center border-b pb-2 text-sm">
                     <span>${item.title}</span>
-                    <span class="font-bold text-emerald-700">${item.price} <button onclick="removeFromCart(${i})" class="text-red-500 ml-2 text-xs">✕</button></span>
+                    <span class="font-bold text-emerald-700">${item.price} <button onclick="removeFromCart(${i})" class="text-red-500 ml-2 text-xs font-bold">✕ মুছুন</button></span>
                 </li>`;
             });
             html += `</ul>`;
@@ -527,15 +547,16 @@
         function handleOrder(event) {
             event.preventDefault();
             if(cart.length === 0) {
-                alert('আপনার কার্ট খালি!');
+                alert('আপনার কার্ট খালি! অনুগ্রহ করে প্রথমে পণ্য যোগ করুন।');
                 return;
             }
-            const name = document.getElementById('custName').value;
-            const phone = document.getElementById('custPhone').value;
-            const address = document.getElementById('custAddress').value;
+            const name = document.getElementById('custName').value.trim();
+            const phone = document.getElementById('custPhone').value.trim();
+            const address = document.getElementById('custAddress').value.trim();
 
             let orderSummary = cart.map(item => `${item.title} (${item.price})`).join(', ');
-            let message = `নতুন অর্ডার এসেছে!\n\nনাম: ${name}\nফোন: ${phone}\nঠিকানা: ${address}\n\nপ্রোডাক্টস: ${orderSummary}`;
+            let message = `নতুন অর্ডার এসেছে!\n\nগ্রাহকের নাম: ${name}\nমোবাইল নাম্বার: ${phone}\nপূর্ণ ঠিকানা: ${address}\n\nনির্বাচিত পণ্যসমূহ: ${orderSummary}\n\nপেমেন্ট পদ্ধতি: ক্যাশ অন ডেলিভারি (Cash on Delivery)`;
+            
             window.open(`https://wa.me/8801910532834?text=${encodeURIComponent(message)}`, '_blank');
         }
 
