@@ -1,2 +1,247 @@
-# -
-এখানে সকল ধরনের গোপন রোগের চিকিৎসা দেওয়া হয় l
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>আয়ুর্বেদিক ও হোমিওপ্যাথি চিকিৎসালয় - স্পেশাল প্রিমিয়াম কম্বো প্যাকেজ</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Font (Hind Siliguri) -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            background-color: #f9fafb;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 pb-16">
+
+    <!-- Top Header -->
+    <header class="bg-emerald-800 text-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <span class="text-xl md:text-2xl font-bold bg-white text-emerald-800 px-2.5 py-1 rounded shadow">🌿 আয়ুর্বেদিক ও হোমিওপ্যাথি চিকিৎসালয়</span>
+            </div>
+            <div>
+                <a href="tel:01910532834" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-full text-sm font-semibold shadow transition whitespace-nowrap">
+                    📞 হটলাইন: 01910-532834
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="container mx-auto px-4 py-6 max-w-4xl">
+
+        <!-- Review Banner / Notice -->
+        <div class="bg-amber-50 border-l-4 border-amber-500 p-4 mb-6 rounded-r shadow-sm">
+            <p class="text-sm md:text-base text-amber-800">
+                ⭐ <em>"কম্বো প্যাকেজটি ব্যবহার করার পর মাত্র ২০ দিনে আমার শারীরিক দুর্বলতা পুরোপুরি দূর হয়েছে। শতভাগ কার্যকর!"</em> – <strong>রিপন আহমেদ, রাজশাহী</strong>
+            </p>
+        </div>
+
+        <!-- Product Hero Card -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-emerald-100 mb-8">
+            <div class="bg-gradient-to-r from-emerald-800 to-emerald-900 text-white p-6 text-center">
+                <span class="bg-amber-400 text-emerald-950 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Premium Combo Package</span>
+                <h1 class="text-2xl md:text-3xl font-bold mt-2">📦 ১. স্পেশাল প্রিমিয়াম কম্বো প্যাকেজ (বয়স ২৩ থেকে ৭০ বছর)</h1>
+                <p class="text-emerald-100 text-sm mt-1">শক্তি, সহনশীলতা ও পারফরম্যান্সের সম্পূর্ণ সমাধান</p>
+            </div>
+
+            <div class="p-6">
+                <!-- Price Box -->
+                <div class="flex items-center justify-between bg-emerald-50 p-4 rounded-xl mb-6 border border-emerald-200">
+                    <div>
+                        <span class="text-gray-500 line-through text-lg">পূর্বের মূল্য: ৪,৫০০ টাকা</span>
+                        <div class="text-2xl md:text-3xl font-extrabold text-emerald-700 mt-1">বর্তমান মূল্য: ৩,৫০০ টাকা</div>
+                    </div>
+                    <span class="bg-red-500 text-white text-xs font-bold px-3 py-1.5 rounded-full animate-pulse">ডিসকাউন্ট অফার!</span>
+                </div>
+
+                <!-- Description & Mental-Physical Benefits -->
+                <div class="space-y-4 text-gray-700 leading-relaxed mb-6">
+                    <h3 class="text-lg font-bold text-emerald-900">📝 ২. মানসিক-শারীরিক উপকারিতা: পুরুষত্বে আস্থা, আত্মবিশ্বাসে দাপট!</h3>
+                    <p>বয়স ২৩ থেকে ৭০ বছর—যেকোনো বয়সের পুরুষদের দীর্ঘদিনের গোপন সমস্যা, শারীরিক ক্লান্তি ও মানসিক অবসাদের স্থায়ী সমাধানের জন্য আমাদের এই পরীক্ষিত কম্বো প্যাকেজটি বিশেষভাবে প্রস্তুত করা হয়েছে। এই কোর্সটি শুধু আপনার শারীরিক শক্তিই ফিরিয়ে আনে না, এটি আপনার জীবনকে বদলে দেয় সম্পূর্ণ নতুনভাবে:</p>
+                    
+                    <ul class="list-disc pl-5 space-y-3">
+                        <li><strong>মনের ভেতর গভীর ভালোলাগা ও শান্তি:</strong> নিয়মিত সেবনে মনের ভেতরের সকল ধরনের উদাসীনতা, অশান্তি ও মানসিক চাপ দূর হয়ে এক অদ্ভুত প্রশান্তি ও ভালোলাগা কাজ করে।</li>
+                        <li><strong>অফুরন্ত শারীরিক শক্তি ও কর্মক্ষমতা:</strong> সারাদিন যত ভারী বা কঠিন কাজই করুন না কেন, শরীরে ক্লান্তি বা অবসাদ আসবে না। শরীর থাকবে চনমনে ও শক্তিশালী।</li>
+                        <li><strong>১৫-১৬ বছরের যুবকদের মতো তীক্ষ্ণ ও সজীব মস্তিষ্ক:</strong> আপনার মস্তিষ্ক কাজ করবে অত্যন্ত নিখুঁত ও প্রখরভাবে। টেনশনমুক্ত মন থাকবে সবসময় ফুরফুরা ও তরতাজা, যা আপনার কর্মদক্ষতা ও আত্মবিশ্বাস বহুগুণ বাড়িয়ে দেয়।</li>
+                    </ul>
+                </div>
+
+                <!-- 4 Products Details -->
+                <div class="border-t pt-6 mb-6">
+                    <h3 class="text-lg font-bold text-emerald-900 mb-4">🌿 প্যাকের ভেতরে থাকা ৪টি পণ্যের সুনির্দিষ্ট কাজ ও উপকারিতা:</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-gray-50 p-4 rounded-xl border border-gray-200">
+                            <h4 class="font-bold text-emerald-800">১. রাজমনি হালুয়া (Rajmoni Halua)</h4>
+                            <p class="text-sm text-gray-600 mt-1"><strong>মূল কাজ:</strong> শরীরের ভেতর থেকে শক্তি ও স্ট্যামিনা বহুগুণ বাড়িয়ে দেয়।</p>
+                            <p class="text-sm text-gray-600 mt-1"><strong>উপকারিতা:</strong> শারীরিক দুর্বলতা দূর করে শরীরে পূর্ণ জোশ ও দীর্ঘস্থায়ী শক্তি ফিরিয়ে আনে।</p>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-xl border border-gray-200">
+                            <h4 class="font-bold text-emerald-800">২. বীর্য শক্তি বর্ধক বড়ি / Sperm Power Booster (৬০ টি বড়ি)</h4>
+                            <p class="text-sm text-gray-600 mt-1"><strong>মূল কাজ:</strong> বীর্যের ঘনত্ব ও পরিমাণ বৃদ্ধি করা।</p>
+                            <p class="text-sm text-gray-600 mt-1"><strong>উপকারিতা:</strong> পাতলা বীর্যকে গাড় ও শক্তিশালী করে তোলে, ফলে দ্রুত বীর্যপাত রোধ হয় এবং সহবাসের সময় দীর্ঘায়িত হয়।</p>
+                        </div>
+
+                        <div class="bg-gray-50 p-4 rounded-xl border border-gray-200">
+                            <h4 class="font-bold text-emerald-800">৩. এনার্জি সাপোর্ট বড়ি / Energy Support Tablets (৩০ টি বড়ি)</h4>
+                            <p class="text-sm text-gray-600 mt-1"><strong>মূল কাজ:</strong> শরীরের শক্তি ও কর্মক্ষমতা বাড়ানো।</p>
+                            <p class="text-sm text-gray-600 mt-1"><strong>উপকারিতা:</strong> স্নায়বিক ক্লান্তি ও মানসিক অবসাদ দূর করে সারাদিন এনার্জিটিক রাখে।</p>
+                        </div>
+
+                        <div class="bg-gray-50 p-4 rounded-xl border border-gray-200">
+                            <h4 class="font-bold text-emerald-800">৪. মালিসের তেল / Malish Oil (২ টি)</h4>
+                            <p class="text-sm text-gray-600 mt-1"><strong>মূল কাজ:</strong> রক্ত সঞ্চালন বৃদ্ধি ও শক্তি জাগানো।</p>
+                            <p class="text-sm text-gray-600 mt-1"><strong>উপকারিতা:</strong> গোপনাঙ্গের পেশিগুলোকে সবল করে, শিথিলতা দূর করে এবং পূর্ণাঙ্গ দৃঢ়তা প্রদান করে।</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Price Objection Handling Note -->
+                <div class="bg-emerald-50 border-l-4 border-emerald-600 p-4 rounded-r mb-6 text-sm italic text-emerald-900">
+                    💡 <strong>বিশেষ নোট:</strong> "ভাই, ভালো জিনিসের দাম কিছুটা তো বেশি হবেই! বাজারে কম দামের ভেজাল কেমিক্যালযুক্ত পণ্য খেয়ে নিজের স্বাস্থ্য কেন নষ্ট করবেন? আমাদের এই পণ্যটি ১০০% খাঁটি ও বিশুদ্ধ প্রাকৃতিক উপাদান দ্বারা প্রস্তুত এবং এর সাথে উচ্চমানের জার্মানি মেডিসিন ফর্মুলা মিশ্রিত রয়েছে। দাম কিছুটা বেশি হলেও আমাদের এই কম্বো প্যাকটি ব্যবহার করলে আপনি ১০০ তে ১০০% কার্যকরী রেজাল্ট পাবেন ইনশাআল্লাহ। এক ট্রিটমেন্টেই স্থায়ী সমাধান, বারবার টাকা নষ্ট করার হাত থেকে রক্ষা পাবেন।"
+                </div>
+
+                <!-- Key Benefits Checklist -->
+                <div class="bg-gray-50 p-4 rounded-xl mb-6">
+                    <h4 class="font-bold text-gray-800 mb-2">✨ কেন এই কম্বো প্যাকটি নেবেন?</h4>
+                    <ul class="space-y-2 text-sm text-gray-700">
+                        <li>✅ ২৩ থেকে ৭০ বছরের সকল বয়সের পুরুষদের জন্য ১০০% কার্যকরী।</li>
+                        <li>✅ মানসিক শান্তি, টেনশনমুক্ত মন ও শারীরিক শক্তি একসঙ্গে বৃদ্ধি করে।</li>
+                        <li>✅ ১০০% গোপনীয়তা বজায় রেখে হোম ডেলিভারি সুবিধা।</li>
+                    </ul>
+                </div>
+
+                <!-- Order Form Section -->
+                <div class="bg-white border-2 border-emerald-500 rounded-2xl p-6 shadow-md" id="orderFormSection">
+                    <h3 class="text-xl font-bold text-center text-emerald-900 mb-4">অর্ডার করতে নিচের ফর্মটি পূরণ করুন</h3>
+                    
+                    <form onsubmit="handleOrder(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1">আপনার নাম *</label>
+                            <input type="text" id="custName" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500" placeholder="পূর্ণ নাম লিখুন">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1">মোবাইল নম্বর *</label>
+                            <input type="tel" id="custPhone" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500" placeholder="আপনার মোবাইল নম্বর">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-1">পূর্ণ ঠিকানা (বাসা/রোড, থানা, জেলা) *</label>
+                            <textarea id="custAddress" required rows="3" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500" placeholder="আপনার সম্পূর্ণ ঠিকানা লিখুন"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-xl shadow-lg transition duration-200 text-lg">
+                            🛒 অর্ডার কনফার্ম করুন (৩,৫০০ টাকা)
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer with Hidden Admin Access -->
+    <footer class="bg-emerald-900 text-emerald-200 py-6 text-center text-sm">
+        <p>© ২০২৬ আয়ুর্বেদিক ও হোমিওপ্যাথি চিকিৎসালয়। সর্বস্বত্ব সংরক্ষিত।</p>
+        <p class="mt-1">📞 হটলাইন: 01910-532834</p>
+        <div class="mt-3">
+            <!-- গোপন অ্যাডমিন বাটন -->
+            <span onclick="openOwnerLogin()" class="text-xs text-emerald-900 hover:text-emerald-400 cursor-pointer select-none">🔒 Admin</span>
+        </div>
+    </footer>
+
+    <!-- Owner Login Modal -->
+    <div id="ownerModal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center hidden z-50 p-4">
+        <div class="bg-white rounded-2xl p-6 max-w-md w-full shadow-2xl">
+            <h3 class="text-xl font-bold text-emerald-900 mb-4" id="ownerModalTitle">অ্যাডমিন লগইন</h3>
+            
+            <div id="ownerLoginForm">
+                <p class="text-sm text-gray-600 mb-3">শুধুমাত্র ওয়েবসাইটের মালিকের জন্য সংরক্ষিত।</p>
+                <div class="space-y-3">
+                    <input type="email" id="ownerEmail" placeholder="আপনার জিমেইল লিখুন" class="w-full px-4 py-2 border rounded-lg">
+                    <input type="password" id="ownerPass" placeholder="আপনার পাসওয়ার্ড লিখুন" class="w-full px-4 py-2 border rounded-lg">
+                    <button onclick="verifyOwner()" class="w-full bg-emerald-700 text-white py-2 rounded-lg font-bold">লগইন করুন</button>
+                    <button onclick="closeOwnerModal()" class="w-full bg-gray-300 py-2 rounded-lg text-gray-700">বাতিল</button>
+                </div>
+            </div>
+
+            <div id="ownerDashboard" class="hidden">
+                <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-200 mb-4">
+                    <p class="text-emerald-800 font-bold">স্বাগতম বস! আপনি সফলভাবে লগইন করেছেন।</p>
+                    <p class="text-xs text-gray-600 mt-1">কাস্টমাররা আপনার এই প্যানেল দেখতে পারবে না।</p>
+                </div>
+                <div class="space-y-2">
+                    <button onclick="logoutOwner()" class="w-full bg-blue-600 text-white py-2 rounded-lg font-bold">লগআউট করুন</button>
+                    <button onclick="closeOwnerModal()" class="w-full bg-gray-300 py-2 rounded-lg text-gray-700">বন্ধ করুন</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script>
+        // সিক্রেট জিমেইল ও পাসওয়ার্ড:
+        const MY_SECRET_EMAIL = "admin@gmail.com";
+        const MY_SECRET_PASS = "12345";
+
+        function handleOrder(event) {
+            event.preventDefault();
+            const name = document.getElementById('custName').value;
+            const phone = document.getElementById('custPhone').value;
+            const address = document.getElementById('custAddress').value;
+
+            const message = `নতুন অর্ডার এসেছে!\n\nপ্রতিষ্ঠানের নাম: আয়ুর্বেদিক ও হোমিওপ্যাথি চিকিৎসালয়\nপণ্যের নাম: স্পেশাল প্রিমিয়াম কম্বো প্যাকেজ (বয়স ২৩ থেকে ৭০ বছর)\nমূল্য: ৩,৫০০ টাকা\n\nগ্রাহকের নাম: ${name}\nফোন: ${phone}\nঠিকানা: ${address}`;
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/8801910532834?text=${encodedMessage}`;
+            
+            alert('আপনার অর্ডার সফলভাবে গ্রহণ করা হয়েছে! কনফার্ম করার জন্য আপনাকে WhatsApp-এ নিয়ে যাওয়া হচ্ছে।');
+            window.location.href = whatsappUrl;
+        }
+
+        function openOwnerLogin() {
+            document.getElementById('ownerModal').classList.remove('hidden');
+            const isLogged = localStorage.getItem('ownerLoggedIn');
+            if (isLogged === 'true') {
+                document.getElementById('ownerLoginForm').classList.add('hidden');
+                document.getElementById('ownerDashboard').classList.remove('hidden');
+                document.getElementById('ownerModalTitle').innerText = "অ্যাডমিন ড্যাশবোর্ড";
+            } else {
+                document.getElementById('ownerLoginForm').classList.remove('hidden');
+                document.getElementById('ownerDashboard').classList.add('hidden');
+                document.getElementById('ownerModalTitle').innerText = "অ্যাডমিন লগইন";
+            }
+        }
+
+        function closeOwnerModal() {
+            document.getElementById('ownerModal').classList.add('hidden');
+        }
+
+        function verifyOwner() {
+            const email = document.getElementById('ownerEmail').value;
+            const pass = document.getElementById('ownerPass').value;
+
+            if (email === MY_SECRET_EMAIL && pass === MY_SECRET_PASS) {
+                localStorage.setItem('ownerLoggedIn', 'true');
+                alert('সফলভাবে লগইন হয়েছে!');
+                openOwnerLogin();
+            } else {
+                alert('ভুল জিমেইল অথবা পাসওয়ার্ড!');
+            }
+        }
+
+        function logoutOwner() {
+            localStorage.setItem('ownerLoggedIn', 'false');
+            document.getElementById('ownerEmail').value = '';
+            document.getElementById('ownerPass').value = '';
+            alert('লগআউট সফল হয়েছে!');
+            openOwnerLogin();
+        }
+    </script>
+</body>
+</html>
+
