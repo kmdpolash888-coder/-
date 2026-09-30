@@ -3,607 +3,474 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>আয়ুর্বেদিক ও হোমিওপ্যাথি চিকিৎসালয় - প্রফেশনাল স্বাস্থ্য সেবা</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Font (Hind Siliguri) -->
-    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title id="pageTitle">আমার অনলাইন শপ</title>
+    <!-- ফন্ট অসম আইকন -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
         body {
-            font-family: 'Hind Siliguri', sans-serif;
-            background-color: #f9fafb;
+            background-color: #f8f9fa;
+            color: #333;
         }
-        .fade-in {
-            animation: fadeIn 0.6s ease-in-out;
+        /* পাবলিক ওয়েবসাইট হেডার ও লেআউট */
+        header {
+            background: #ffffff;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(6px); }
-            to { opacity: 1; transform: translateY(0); }
+        .logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        .banner {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .banner h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        /* প্রোডাক্ট ক্যাটালগ গ্রিড */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .product-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        .product-body {
+            padding: 15px;
+        }
+        .product-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+        .product-price {
+            color: #e74c3c;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        .product-desc {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .btn-order {
+            background: #27ae60;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .btn-order:hover {
+            background: #219653;
+        }
+
+        /* হিডেন ট্রিগার ফুটার */
+        .footer {
+            text-align: center;
+            padding: 40px;
+            color: #aaa;
+            font-size: 0.85rem;
+            cursor: pointer;
+            user-select: none;
+            margin-top: 50px;
+        }
+
+        /* লগইন পপআপ মডাল */
+        #loginModal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+        }
+        .login-box {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 350px;
+            text-align: center;
+        }
+        .login-box input {
+            width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px;
+        }
+        .btn-primary {
+            background: #3498db; color: white; border: none; width: 100%; padding: 10px; border-radius: 5px; cursor: pointer; font-weight: bold;
+        }
+        .btn-danger { background: #e74c3c; margin-top: 10px; }
+
+        /* নো-কোড এডমিন ড্যাশবোর্ড ওভারলে */
+        #adminDashboard {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: #f4f6f9;
+            z-index: 10000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+        .admin-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        .form-section {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #e1e1e1;
+        }
+        .form-section h3 {
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        .form-control {
+            width: 100%; padding: 10px; margin-bottom: 12px; border: 1px solid #ccc; border-radius: 5px;
+        }
+        .product-list-admin {
+            margin-top: 20px;
+        }
+        .admin-item-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 0.9rem;
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 pb-24">
+<body>
 
-    <!-- Top Header with Three-Dot Menu (⋮) -->
-    <header class="bg-emerald-800 text-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center relative">
-            <div class="flex items-center space-x-2">
-                <span class="text-xs md:text-base font-bold bg-white text-emerald-800 px-2.5 py-1 rounded shadow">🌿 আয়ুর্বেদিক চিকিৎসালয়</span>
-            </div>
-            
-            <div class="flex items-center space-x-2 md:space-x-3">
-                <a href="tel:01910532834" class="bg-emerald-600 hover:bg-emerald-700 text-white px-2.5 py-1 rounded-full text-xs font-semibold shadow">
-                    📞 হটলাইন
-                </a>
-                
-                <!-- Cart Icon -->
-                <div class="relative cursor-pointer" onclick="switchTab('cart')">
-                    <span class="text-xl">🛒</span>
-                    <span id="cartBadge" class="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">0</span>
-                </div>
+    <!-- পাবলিক ওয়েবসাইট ফ্রন্টএন্ড (লগআউট অবস্থায় সবাই এটি দেখবে এবং অর্ডার করতে পারবে) -->
+    <div id="publicSite">
+        <header>
+            <div class="logo" id="siteLogoText">আমার অনলাইন শপ</div>
+            <div><i class="fa-solid fa-phone"></i> হটলাইন: <span id="siteHotlineText">01910-532834</span></div>
+        </header>
 
-                <!-- Top Three-Dot Menu Button (⋮) -->
-                <div class="relative">
-                    <button onclick="toggleTopMenu()" class="text-white text-2xl font-bold px-2 py-1 rounded hover:bg-emerald-700 focus:outline-none">
-                        ⋮
-                    </button>
-                    
-                    <!-- Dropdown Menu Box (Multiple Tabs/Pages) -->
-                    <div id="topDropdownMenu" class="hidden absolute right-0 mt-2 w-52 bg-white rounded-xl shadow-2xl border border-gray-100 py-2 text-gray-800 z-50">
-                        <button onclick="switchTab('home'); toggleTopMenu();" class="w-full text-left px-4 py-2 text-sm hover:bg-emerald-50 flex items-center space-x-2">
-                            <span>🏠</span> <span>হোম পেজ</span>
-                        </button>
-                        <button onclick="switchTab('catalog'); toggleTopMenu();" class="w-full text-left px-4 py-2 text-sm hover:bg-emerald-50 flex items-center space-x-2">
-                            <span>📦</span> <span>প্রোডাক্ট ক্যাটালগ</span>
-                        </button>
-                        <button onclick="switchTab('delivery'); toggleTopMenu();" class="w-full text-left px-4 py-2 text-sm hover:bg-emerald-50 flex items-center space-x-2">
-                            <span>🛡️</span> <span>গোপনীয়তা ও ডেলিভারি</span>
-                        </button>
-                        <button onclick="switchTab('cart'); toggleTopMenu();" class="w-full text-left px-4 py-2 text-sm hover:bg-emerald-50 flex items-center space-x-2">
-                            <span>🛒</span> <span>শপিং কার্ট</span>
-                        </button>
-                        <button onclick="switchTab('contact'); toggleTopMenu();" class="w-full text-left px-4 py-2 text-sm hover:bg-emerald-50 flex items-center space-x-2">
-                            <span>📞</span> <span>যোগাযোগ ও পরামর্শ</span>
-                        </button>
-                        <div class="border-t my-1"></div>
-                        <a href="#admin" onclick="openOwnerLogin(); toggleTopMenu();" class="w-full text-left px-4 py-2 text-xs text-emerald-800 font-bold hover:bg-emerald-50 flex items-center space-x-2">
-                            <span>🔒</span> <span>অ্যাডমিন প্যানেল</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Main Content Views (Multi-Page System) -->
-    <main class="container mx-auto px-4 py-6 max-w-4xl min-h-[75vh]">
-
-        <!-- 1. HOME VIEW -->
-        <div id="view-home" class="view-section fade-in">
-            <!-- Massive Rotating Facebook-Style Reviews Banner (10 Seconds Interval) -->
-            <div class="bg-white border border-emerald-200 p-4 mb-6 rounded-2xl shadow-md">
-                <div class="flex items-center justify-between mb-2 border-b pb-2">
-                    <span class="text-xs font-bold text-emerald-800 uppercase flex items-center space-x-1">
-                        <span>⭐</span> <span>গ্রাহকদের ভেরিফাইড ফেসবুক রিভিউ (১০০০+ সন্তুষ্ট ক্রেতা)</span>
-                    </span>
-                    <span class="text-[10px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full font-bold">লাইভ আপডেট</span>
-                </div>
-                <div id="reviewContainer" class="flex items-start space-x-3 fade-in">
-                    <img id="reviewAvatar" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100" alt="Avatar" class="w-12 h-12 rounded-full object-cover border-2 border-emerald-600 shadow">
-                    <div>
-                        <div class="flex items-center space-x-2">
-                            <h4 class="font-bold text-sm text-gray-900" id="reviewName">রিপন আহমেদ</h4>
-                            <span class="text-[10px] text-gray-500" id="reviewLoc">রাজশাহী</span>
-                        </div>
-                        <div class="text-amber-500 text-xs">★★★★★</div>
-                        <p class="text-xs md:text-sm text-gray-700 mt-1" id="reviewText">
-                            "কম্বো প্যাকেজটি ব্যবহার করার পর মাত্র ২০ দিনে শারীরিক দুর্বলতা দূর হয়েছে। শতভাগ কার্যকর!"
-                        </p>
-                    </div>
-                </div>
+        <div class="container">
+            <div class="banner">
+                <h1 id="bannerTitle">সেরা মূল্যে প্রিমিয়াম পণ্য কিনুন</h1>
+                <p id="bannerSub">ঘরে বসেই অর্ডার করুন, দ্রুত হোম ডেলিভারি পান।</p>
             </div>
 
-            <!-- Trust & Privacy Highlight Box -->
-            <div class="bg-white border border-emerald-200 rounded-2xl p-5 mb-6 shadow-sm space-y-3">
-                <h3 class="font-bold text-emerald-900 text-base">🛡️ আমাদের অঙ্গীকার ও ডেলিভারি পলিসি</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-gray-700">
-                    <div class="bg-emerald-50 p-3 rounded-xl border border-emerald-100">
-                        <p class="font-bold text-emerald-800 mb-1">📦 ১০০% গোপন প্যাকেজিং</p>
-                        <p>আপনার গোপনীয়তা রক্ষার্থে পণ্য সম্পূর্ণ স্টিকার বা ডিস্ক্রিট বক্সে কুরিয়ার করা হয়, বাইরের কেউ বুঝতেই পারবে না ভেতরে কী আছে।</p>
-                    </div>
-                    <div class="bg-emerald-50 p-3 rounded-xl border border-emerald-100">
-                        <p class="font-bold text-emerald-800 mb-1">🚚 সারাদেশে ক্যাশ অন ডেলিভারি</p>
-                        <p>বাংলাদেশের যেকোনো প্রান্ত থেকে অর্ডার করতে পারেন। তবে কুরিয়ার চার্জ অর্ডার কনফার্ম করার আগেই অগ্রিম প্রযোজ্য।</p>
-                    </div>
-                </div>
-                <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-xs text-amber-900 flex justify-between items-center">
-                    <span>💡 অর্ডারের আগে কোনো পরামর্শ বা কথা বলতে চান?</span>
-                    <a href="tel:01910532834" class="bg-amber-600 text-white font-bold px-3 py-1 rounded-full shadow">📞 ফ্রি কল করুন</a>
-                </div>
-            </div>
-
-            <!-- Dynamic Products Container -->
-            <div id="dynamicProductsList" class="space-y-6">
-                <!-- Products loaded dynamically -->
+            <h2 style="margin-bottom: 20px; color: #2c3e50;">আমাদের পণ্যসমূহ</h2>
+            <div class="products-grid" id="publicProductGrid">
+                <!-- ডায়নামিক প্রোডাক্ট এখানে লোড হবে -->
             </div>
         </div>
 
-        <!-- 2. CATALOG VIEW -->
-        <div id="view-catalog" class="view-section hidden fade-in">
-            <h2 class="text-xl font-bold text-emerald-900 mb-4">🌿 সকল প্রোডাক্ট ও ক্যাটালগ</h2>
-            <div id="catalogProductsList" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <!-- Catalog items loaded dynamically -->
-            </div>
-        </div>
-
-        <!-- 3. PRIVACY & DELIVERY POLICY VIEW -->
-        <div id="view-delivery" class="view-section hidden fade-in space-y-4">
-            <div class="bg-white p-6 rounded-2xl shadow border space-y-4">
-                <h2 class="text-xl font-bold text-emerald-900 border-b pb-2">🛡️ গোপনীয়তা ও ডেলিভারি নীতিমালা</h2>
-                
-                <div class="space-y-3 text-sm text-gray-700 leading-relaxed">
-                    <div class="bg-emerald-50 p-4 rounded-xl border">
-                        <h4 class="font-bold text-emerald-900 mb-1">১. গোপনীয়তা রক্ষা (Privacy Policy)</h4>
-                        <p class="text-xs">আপনার ব্যক্তিগত তথ্য, নাম, ঠিকানা এবং রোগের বিবরণ সম্পূর্ণ সুরক্ষিত ও গোপন রাখা হয়। কুরিয়ার প্যাকেট বা বক্সে কোনো প্রোডাক্টের নাম বা লোগো উল্লেখ থাকে না।</p>
-                    </div>
-
-                    <div class="bg-emerald-50 p-4 rounded-xl border">
-                        <h4 class="font-bold text-emerald-900 mb-1">২. ডেলিভারি চার্জ ও শর্তাবলী</h4>
-                        <p class="text-xs">আমরা সারাদেশে ক্যাশ অন ডেলিভারিতে পার্সেল পাঠিয়ে থাকি। তবে নিরাপত্তা ও নিশ্চিতকরণের স্বার্থে **ডেলিভারি চার্জ অর্ডার কনফার্ম করার আগেই** প্রদান করতে হবে। পণ্য হাতে পেয়ে বাকি মূল্য পরিশোধ করবেন।</p>
-                    </div>
-
-                    <div class="bg-emerald-50 p-4 rounded-xl border">
-                        <h4 class="font-bold text-emerald-900 mb-1">৩. অর্ডার করার আগে কথা বলুন</h4>
-                        <p class="text-xs">যেকোনো কনফিউশন বা স্বাস্থ্যগত পরামর্শের জন্য সরাসরি আমাদের হটলাইনে কল করে বিস্তারিত কথা বলে নিতে পারেন। আমাদের অভিজ্ঞ চিকিৎসক টিম আপনাকে সম্পূর্ণ **ফ্রি পরামর্শ** প্রদান করবে।</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 4. CART VIEW -->
-        <div id="view-cart" class="view-section hidden fade-in">
-            <h2 class="text-xl font-bold text-emerald-900 mb-4">🛒 আপনার শপিং কার্ট</h2>
-            <div id="cartItemsContainer" class="bg-white p-4 rounded-xl shadow border mb-6">
-                <p class="text-sm text-gray-500">আপনার কার্ট খালি রয়েছে।</p>
-            </div>
-            <div class="bg-white border-2 border-emerald-500 rounded-2xl p-6 shadow-md">
-                <h3 class="text-lg font-bold text-emerald-900 mb-2">অর্ডার কনফার্ম করতে তথ্য দিন</h3>
-                <p class="text-xs text-amber-800 mb-4 bg-amber-50 p-2.5 rounded border border-amber-200">ℹ️ নোট: সারাদেশে ক্যাশ অন ডেলিভারি। ডেলিভারি চার্জ অর্ডার কনফার্ম করার আগেই দিতে হবে। প্রয়োজনে অর্ডারের পূর্বে কথা বলুন: 01910-532834</p>
-                <form onsubmit="handleOrder(event)" class="space-y-3">
-                    <input type="text" id="custName" required class="w-full px-3 py-2 border rounded-lg text-sm" placeholder="আপনার পূর্ণ নাম *">
-                    <input type="tel" id="custPhone" required class="w-full px-3 py-2 border rounded-lg text-sm" placeholder="মোবাইল নম্বর *">
-                    <textarea id="custAddress" required rows="2" class="w-full px-3 py-2 border rounded-lg text-sm" placeholder="সম্পূর্ণ ঠিকানা (বাসা, থানা, জেলা) *"></textarea>
-                    <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2.5 rounded-xl shadow text-sm">
-                        🛒 অর্ডার কনফার্ম করুন (WhatsApp)
-                    </button>
-                </form>
-            </div>
-        </div>
-
-        <!-- 5. CONTACT & FREE CONSULTATION VIEW -->
-        <div id="view-contact" class="view-section hidden fade-in space-y-4">
-            <div class="bg-white p-6 rounded-2xl shadow border space-y-4">
-                <h2 class="text-xl font-bold text-emerald-900">📞 যোগাযোগ ও ফ্রি পরামর্শ</h2>
-                <p class="text-sm text-gray-700">যেকোনো পরামর্শ বা প্রয়োজনে সরাসরি আমাদের সাথে যোগাযোগ করুন। আমাদের বিশেষজ্ঞরা আপনাকে ফ্রি পরামর্শ দেবেন:</p>
-                <div class="bg-emerald-50 p-5 rounded-xl border border-emerald-200 space-y-3 text-sm">
-                    <p><strong>প্রতিষ্ঠানের নাম:</strong> আয়ুর্বেদিক ও হোমিওপ্যাথি চিকিৎসালয়</p>
-                    <p><strong>হটলাইন ও ফ্রি পরামর্শ:</strong> <a href="tel:01910532834" class="text-emerald-700 font-bold text-base underline">01910-532834</a></p>
-                    <p><strong>হোয়াটসঅ্যাপ সাপোর্ট:</strong> <a href="https://wa.me/8801910532834" target="_blank" class="text-green-600 font-bold">সরাসরি চ্যাট করুন</a></p>
-                </div>
-            </div>
-        </div>
-
-    </main>
-
-    <!-- Floating AI Health Assistant -->
-    <div class="fixed bottom-5 left-5 z-40">
-        <button onclick="toggleAiChat()" class="bg-emerald-700 hover:bg-emerald-800 text-white px-3 py-2 rounded-full shadow-2xl flex items-center space-x-1 font-bold text-xs">
-            <span>🤖 ফ্রি এআই ডাক্তার</span>
-        </button>
-        <div id="aiChatBox" class="hidden absolute bottom-12 left-0 bg-white w-72 rounded-xl shadow-2xl border p-3">
-            <div class="flex justify-between items-center border-b pb-1 mb-2">
-                <h4 class="font-bold text-emerald-800 text-xs">🤖 এআই হেলথ কনসালট্যান্ট</h4>
-                <button onclick="toggleAiChat()" class="text-gray-500 font-bold text-xs">✕</button>
-            </div>
-            <div id="aiChatMessages" class="h-36 overflow-y-auto text-xs space-y-1 mb-2 p-2 bg-gray-50 rounded">
-                <p class="text-gray-700">আসসালামু আলাইকুম! গোপন সমস্যা বা পরামর্শের জন্য হটলাইনে কল করুন: 01910-532834</p>
-            </div>
-            <div class="flex space-x-1">
-                <input type="text" id="aiUserInput" placeholder="প্রশ্ন লিখুন..." class="w-full px-2 py-1 text-xs border rounded">
-                <button onclick="sendAiMessage()" class="bg-emerald-700 text-white px-2 py-1 text-xs rounded font-bold">পাঠান</button>
-            </div>
+        <!-- সিক্রেট ট্রিগার: এখানে ১০ বার ক্লিক করলে জিমেইল-পাসওয়ার্ড বক্স আসবে -->
+        <div class="footer" id="secretTrigger">
+            © ২০২৬ সর্বস্বত্ব সংরক্ষিত। পলশ সিস্টেম।
         </div>
     </div>
 
-    <!-- Massive 500+ Live Order Notification Toast (Rotates every 10 seconds) -->
-    <div id="orderToast" class="fixed top-16 right-4 bg-white border-l-4 border-emerald-600 shadow-2xl p-3 rounded-lg z-30 max-w-xs transition-all duration-500 transform translate-y-20 opacity-0">
-        <div class="flex items-center space-x-2">
-            <img id="toastAvatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" class="w-10 h-10 rounded-full object-cover">
-            <div>
-                <p class="text-[10px] font-bold text-emerald-800" id="toastHeader">এইমাত্র অর্ডার করেছেন (৫০০+ সফল ডেলিভারি):</p>
-                <p class="text-xs font-bold text-gray-900" id="toastNameLoc">রফিকুল ইসলাম, ঢাকা</p>
-                <p class="text-[11px] text-gray-600" id="toastProduct">স্পেশাল কম্বো প্যাক (৩,৫০০ টাকা)</p>
-            </div>
+    <!-- লগইন পপআপ মডাল -->
+    <div id="loginModal">
+        <div class="login-box">
+            <h3>🔒 এডমিন ভেরিফিকেশন</h3>
+            <p style="font-size: 0.85rem; color: #666; margin-bottom: 15px;">আপনার সিক্রেট জিমেইল ও পাসওয়ার্ড দিন</p>
+            <input type="email" id="emailInput" placeholder="জিমেইল লিখুন">
+            <input type="password" id="passInput" placeholder="পাসওয়ার্ড লিখুন">
+            <button class="btn-primary" onclick="verifyLogin()">লগইন করুন</button>
+            <button class="btn-primary btn-danger" onclick="closeLoginModal()">বাতিল</button>
         </div>
     </div>
 
-    <!-- Owner / Admin Dashboard Modal (#admin) -->
-    <div id="ownerModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center hidden z-50 p-4 overflow-y-auto">
-        <div class="bg-white rounded-2xl p-6 max-w-xl w-full shadow-2xl my-8">
-            <h3 class="text-xl font-bold text-emerald-900 mb-4">অ্যাডমিন কন্ট্রোল প্যানেল</h3>
-            
-            <div id="ownerLoginForm">
-                <p class="text-sm text-gray-600 mb-3">মালিকের গোপন জিমেইল ও পাসওয়ার্ড দিয়ে প্রবেশ করুন।</p>
-                <div class="space-y-3">
-                    <input type="email" id="ownerEmail" placeholder="জিমেইল লিখুন" class="w-full px-4 py-2 border rounded-lg text-sm">
-                    <input type="password" id="ownerPass" placeholder="পাসওয়ার্ড লিখুন" class="w-full px-4 py-2 border rounded-lg text-sm">
-                    <button onclick="verifyOwner()" class="w-full bg-emerald-700 text-white py-2 rounded-lg font-bold text-sm">লগইন করুন</button>
-                    <button onclick="closeOwnerModal()" class="w-full bg-gray-300 py-2 rounded-lg text-gray-700 text-sm">বাতিল</button>
-                </div>
-            </div>
-
-            <div id="ownerDashboard" class="hidden space-y-4">
-                <div class="bg-emerald-50 p-3 rounded-xl border border-emerald-200">
-                    <p class="text-emerald-800 font-bold text-sm">⚙️ ক্যাটালগ ও প্রোডাক্ট ম্যানেজমেন্ট</p>
-                    <p class="text-xs text-gray-600">গ্যালারি থেকে ছবি আপলোড করে নতুন পণ্য যোগ, এডিট বা ডিলিট করুন।</p>
-                </div>
-
-                <div class="bg-gray-50 p-4 rounded-xl border space-y-3">
-                    <input type="hidden" id="editIndex" value="-1">
-                    <div>
-                        <label class="block text-xs font-semibold text-gray-700 mb-1">মূল্য (টাকা):</label>
-                        <input type="number" id="admPrice" class="w-full px-3 py-1.5 border rounded text-sm" placeholder="যেমন: 3500">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-semibold text-gray-700 mb-1">ক্যাটালগ (combo বা herbal):</label>
-                        <input type="text" id="admCategory" class="w-full px-3 py-1.5 border rounded text-sm" placeholder="combo herbal">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-semibold text-gray-700 mb-1">গ্যালারি থেকে ছবি সিলেক্ট করুন:</label>
-                        <input type="file" id="admImageFile" accept="image/*" class="w-full px-3 py-1.5 border rounded text-sm bg-white">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-semibold text-gray-700 mb-1">পূর্ণাঙ্গ বিবরণ:</label>
-                        <textarea id="admDesc" rows="2" class="w-full px-3 py-1.5 border rounded text-sm" placeholder="পণ্যের বিবরণ লিখুন..."></textarea>
-                    </div>
-                    <button onclick="saveCatalogItem()" class="w-full bg-emerald-700 hover:bg-emerald-800 text-white py-2 rounded-lg font-bold text-sm shadow">
-                        + ক্যাটালগ সেভ / আপডেট করুন
-                    </button>
-                </div>
-
+    <!-- নো-কোড এডমিন কন্ট্রোল প্যানেল ড্যাশবোর্ড -->
+    <div id="adminDashboard">
+        <div class="admin-container">
+            <div class="admin-header">
+                <h2>🛠️ নো-কোড এডমিন কন্ট্রোল প্যানেল</h2>
                 <div>
-                    <h4 class="font-bold text-sm text-gray-700 mb-2">বিদ্যমান ক্যাটালগসমূহ:</h4>
-                    <div id="adminCatalogList" class="space-y-2 max-h-48 overflow-y-auto"></div>
+                    <button class="btn-primary" style="width: auto; padding: 8px 15px; background: #27ae60;" onclick="exitAdminPanel()">ওয়েবসাইটে ফিরে যান</button>
+                    <button class="btn-primary btn-danger" style="width: auto; padding: 8px 15px;" onclick="logoutAdmin()">লগআউট</button>
                 </div>
+            </div>
 
-                <div class="border-t pt-3 space-y-2">
-                    <button onclick="logoutOwner()" class="w-full bg-blue-600 text-white py-2 rounded-lg font-bold text-sm">লগআউট করুন</button>
-                    <button onclick="closeOwnerModal()" class="w-full bg-gray-300 py-2 rounded-lg text-gray-700 text-sm">প্যানেল বন্ধ করুন</button>
+            <!-- ১. সাইট ও ব্যানার সেটিংস এডিট করার ফর্ম -->
+            <div class="form-section">
+                <h3>ওয়েবসাইটের সাধারণ তথ্য ও হেডার পরিবর্তন</h3>
+                <input type="text" id="editSiteName" class="form-control" placeholder="ওয়েবসাইটের নাম">
+                <input type="text" id="editHotline" class="form-control" placeholder="হটলাইন নম্বর">
+                <input type="text" id="editBannerTitle" class="form-control" placeholder="ব্যানার শিরোনাম">
+                <button class="btn-primary" onclick="saveSiteSettings()">সেটিংস আপডেট করুন</button>
+            </div>
+
+            <!-- ২. নতুন পণ্য বা অফার অ্যাড করার ফর্ম -->
+            <div class="form-section">
+                <h3 id="formHeading">নতুন পণ্য বা অফার যোগ করুন</h3>
+                <input type="hidden" id="editIndex" value="-1">
+                <input type="text" id="prodTitle" class="form-control" placeholder="পণ্যের নাম">
+                <input type="text" id="prodPrice" class="form-control" placeholder="মূল্য (যেমন: ১,৫০০ টাকা বা ছাড়ের মূল্য)">
+                <input type="text" id="prodImg" class="form-control" placeholder="পণ্যের ছবির লিংক (Image URL)">
+                <textarea id="prodDesc" class="form-control" rows="2" placeholder="পণ্যের বিবরণ বা অফারের বিস্তারিত"></textarea>
+                <button class="btn-primary" onclick="saveProduct()">পণ্য সেভ বা আপডেট করুন</button>
+            </div>
+
+            <!-- ৩. বিদ্যমান পণ্য ডিলিট বা এডিট করার তালিকা -->
+            <div class="form-section">
+                <h3>বিদ্যমান পণ্য তালিকা (এডিট বা ডিলিট করুন)</h3>
+                <div class="product-list-admin" id="adminProductList">
+                    <!-- লিস্ট এখানে শো করবে -->
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Scripting with Massive 1000+ Reviews & 500+ Order Notifications (10s Interval) -->
+    <!-- জাভাস্ক্রিপ্ট মাস্টার লজিক -->
     <script>
-        const MY_SECRET_EMAIL = "admin@gmail.com";
-        const MY_SECRET_PASS = "12345";
+        // ডিফল্ট সেটিংস ও প্রোডাক্ট ডাটা
+        let siteSettings = JSON.parse(localStorage.getItem('siteSettings')) || {
+            name: "আমার অনলাইন শপ",
+            hotline: "01910-532834",
+            banner: "সেরা মূল্যে প্রিমিয়াম পণ্য কিনুন"
+        };
 
-        let products = JSON.parse(localStorage.getItem('siteProducts')) || [
+        let products = JSON.parse(localStorage.getItem('products')) || [
             {
-                title: "স্পেশাল প্রিমিয়াম কম্বো প্যাকেজ (বয়স ২৩ থেকে ৭০ বছর)",
-                price: 3500,
-                category: "combo herbal",
-                image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600",
-                desc: "শারীরিক দুর্বলতা দূর করে শরীরে পূর্ণ জোশ ও দীর্ঘস্থায়ী শক্তি ফিরিয়ে আনে। ১০০% ভেষজ কোর্স।"
+                title: "স্পেশাল ভেষজ প্যাক",
+                price: "৩,৫০০ টাকা",
+                img: "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=500",
+                desc: "১০০% প্রাকৃতিক উপাদান দিয়ে তৈরি, কোনো পার্শ্বপ্রতিক্রিয়া নেই।"
             },
             {
-                title: "প্রাকৃতিক স্ট্যামিনা ও শক্তি বর্ধক ভেষজ হালুয়া",
-                price: 1800,
-                category: "herbal",
-                image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=600",
-                desc: "স্নায়বিক ক্লান্তি ও মানসিক অবসাদ দূর করে সারাদিন এনার্জিটিক রাখে।"
+                title: "এনার্জি বুস্টার ক্যাপসুল",
+                price: "১,৮০০ টাকা",
+                img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500",
+                desc: "শারীরিক শক্তি ও কর্মক্ষমতা বৃদ্ধিতে অত্যন্ত কার্যকরী।"
             }
         ];
 
-        let cart = [];
+        let clickCount = 0;
+        const myEmail = "polash3305@gmail.com";
+        const myPass = "1807polash1994";
 
-        window.addEventListener('DOMContentLoaded', () => {
-            if (window.location.hash === '#admin') {
-                openOwnerLogin();
-            }
-            renderProducts();
-            startReviewRotator();
-            startOrderNotifications();
-        });
+        // পেজ লোড হলে সাইট রেন্ডার করা
+        window.onload = function() {
+            renderPublicSite();
+        };
 
-        function toggleTopMenu() {
-            const menu = document.getElementById('topDropdownMenu');
-            menu.classList.toggle('hidden');
-        }
+        function renderPublicSite() {
+            document.getElementById('pageTitle').innerText = siteSettings.name;
+            document.getElementById('siteLogoText').innerText = siteSettings.name;
+            document.getElementById('siteHotlineText').innerText = siteSettings.hotline;
+            document.getElementById('bannerTitle').innerText = siteSettings.banner;
 
-        function switchTab(tabId) {
-            document.querySelectorAll('.view-section').forEach(el => el.classList.add('hidden'));
-            document.getElementById('view-' + tabId).classList.remove('hidden');
-            window.scrollTo(0, 0);
-        }
-
-        function renderProducts() {
-            const homeContainer = document.getElementById('dynamicProductsList');
-            const catalogContainer = document.getElementById('catalogProductsList');
-            const adminContainer = document.getElementById('adminCatalogList');
-
-            homeContainer.innerHTML = '';
-            catalogContainer.innerHTML = '';
-            adminContainer.innerHTML = '';
+            let grid = document.getElementById('publicProductGrid');
+            grid.innerHTML = "";
 
             products.forEach((p, index) => {
-                homeContainer.innerHTML += `
-                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-emerald-100">
-                        <img src="${p.image}" alt="Product" class="w-full h-48 object-cover">
-                        <div class="bg-gradient-to-r from-emerald-800 to-emerald-900 text-white p-4 text-center">
-                            <span class="bg-amber-400 text-emerald-950 text-xs font-bold px-2.5 py-0.5 rounded-full uppercase">${p.category}</span>
-                            <h2 class="text-xl font-bold mt-2">${p.title}</h2>
-                        </div>
-                        <div class="p-5">
-                            <div class="flex items-center justify-between bg-emerald-50 p-3 rounded-xl mb-4 border">
-                                <div class="text-xl font-extrabold text-emerald-700">মূল্য: ${p.price} টাকা</div>
-                                <button onclick="addToCart(${index})" class="bg-red-600 text-white px-4 py-2 rounded-xl font-bold text-sm shadow hover:bg-red-700">🛒 কার্টে যোগ করুন</button>
-                            </div>
-                            <p class="text-gray-700 text-sm leading-relaxed">${p.desc}</p>
+                grid.innerHTML += `
+                    <div class="product-card">
+                        <img src="${p.img}" class="product-img" alt="Product">
+                        <div class="product-body">
+                            <div class="product-title">${p.title}</div>
+                            <div class="product-price">${p.price}</div>
+                            <div class="product-desc">${p.desc}</div>
+                            <button class="btn-order" onclick="orderProduct('${p.title}')">🛒 অর্ডার করুন</button>
                         </div>
                     </div>
                 `;
+            });
+        }
 
-                catalogContainer.innerHTML += `
-                    <div class="bg-white rounded-xl shadow border p-4 flex flex-col justify-between">
+        // সাধারণ অর্ডার সিস্টেম (হোয়াটসঅ্যাপে অর্ডার পাঠাবে)
+        function orderProduct(prodName) {
+            let msg = `হ্যালো, আমি এই পণ্যটি অর্ডার করতে চাই: *${prodName}*। দয়া করে বিস্তারিত জানান।`;
+            window.open(`https://wa.me/8801910532834?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        // ফুটারে ১০ বার ক্লিকের লজিক
+        document.getElementById('secretTrigger').addEventListener('click', function() {
+            clickCount++;
+            if (clickCount >= 10) {
+                clickCount = 0;
+                document.getElementById('loginModal').style.display = 'flex';
+            }
+        });
+
+        function closeLoginModal() {
+            document.getElementById('loginModal').style.display = 'none';
+            clickCount = 0;
+        }
+
+        // জিমেইল ও পাসওয়ার্ড ভেরিফিকেশন
+        function verifyLogin() {
+            let email = document.getElementById('emailInput').value.trim();
+            let pass = document.getElementById('passInput').value.trim();
+
+            if (email === myEmail && pass === myPass) {
+                document.getElementById('loginModal').style.display = 'none';
+                document.getElementById('adminDashboard').style.display = 'block';
+                loadAdminData();
+                document.getElementById('emailInput').value = '';
+                document.getElementById('passInput').value = '';
+            } else {
+                alert('ভুল জিমেইল অথবা পাসওয়ার্ড!');
+            }
+        }
+
+        function exitAdminPanel() {
+            document.getElementById('adminDashboard').style.display = 'none';
+            renderPublicSite(); // সাইট রিফ্রেশ করে আপডেট দেখাবে
+        }
+
+        function logoutAdmin() {
+            document.getElementById('adminDashboard').style.display = 'none';
+            alert('লগআউট করা হয়েছে। এখন ওয়েবসাইট সম্পূর্ণ সাধারণ মোডে আছে।');
+        }
+
+        // এডমিন প্যানেলে ডাটা লোড করা
+        function loadAdminData() {
+            document.getElementById('editSiteName').value = siteSettings.name;
+            document.getElementById('editHotline').value = siteSettings.hotline;
+            document.getElementById('editBannerTitle').value = siteSettings.banner;
+
+            let adminList = document.getElementById('adminProductList');
+            adminList.innerHTML = "";
+
+            products.forEach((p, index) => {
+                adminList.innerHTML += `
+                    <div class="admin-item-row">
+                        <div><b>${p.title}</b> - <span style="color:red;">${p.price}</span></div>
                         <div>
-                            <img src="${p.image}" alt="Img" class="w-full h-32 object-cover rounded-lg mb-2">
-                            <span class="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded">${p.category}</span>
-                            <h3 class="font-bold text-emerald-900 mt-1">${p.title}</h3>
-                            <p class="text-xs text-gray-600 mt-1">${p.desc}</p>
-                        </div>
-                        <div class="mt-4 flex items-center justify-between">
-                            <span class="font-bold text-emerald-700">${p.price} টাকা</span>
-                            <button onclick="addToCart(${index})" class="bg-emerald-600 text-white px-3 py-1.5 rounded text-xs font-bold">কার্টে নিন</button>
-                        </div>
-                    </div>
-                `;
-
-                adminContainer.innerHTML += `
-                    <div class="bg-white p-3 rounded-lg border flex justify-between items-center text-xs">
-                        <div class="flex items-center space-x-2">
-                            <img src="${p.image}" class="w-8 h-8 object-cover rounded">
-                            <div>
-                                <p class="font-bold text-emerald-900">${p.title} (${p.price} টাকা)</p>
-                                <p class="text-gray-500">${p.category}</p>
-                            </div>
-                        </div>
-                        <div class="space-x-1">
-                            <button onclick="editCatalogItem(${index})" class="bg-blue-600 text-white px-2 py-1 rounded">এডিট</button>
-                            <button onclick="deleteCatalogItem(${index})" class="bg-red-600 text-white px-2 py-1 rounded">ডিলিট</button>
+                            <button onclick="editProduct(${index})" style="background:#3498db; color:white; border:none; padding:5px 10px; border-radius:3px; cursor:pointer;">এডিট</button>
+                            <button onclick="deleteProduct(${index})" style="background:#e74c3c; color:white; border:none; padding:5px 10px; border-radius:3px; cursor:pointer; margin-left:5px;">ডিলিট</button>
                         </div>
                     </div>
                 `;
             });
         }
 
-        function addToCart(index) {
-            cart.push(products[index]);
-            document.getElementById('cartBadge').innerText = cart.length;
-            updateCartView();
-            alert('প্রোডাক্টটি সফলভাবে কার্টে যোগ করা হয়েছে!');
-            switchTab('cart');
+        // সাইট সেটিংস সেভ করা
+        function saveSiteSettings() {
+            siteSettings.name = document.getElementById('editSiteName').value;
+            siteSettings.hotline = document.getElementById('editHotline').value;
+            siteSettings.banner = document.getElementById('editBannerTitle').value;
+
+            localStorage.setItem('siteSettings', JSON.stringify(siteSettings));
+            alert('সেটিংস সফলভাবে আপডেট হয়েছে!');
+            renderPublicSite();
         }
 
-        function updateCartView() {
-            const container = document.getElementById('cartItemsContainer');
-            if(cart.length === 0) {
-                container.innerHTML = `<p class="text-sm text-gray-500">আপনার কার্ট খালি রয়েছে।</p>`;
-                return;
-            }
-            let total = 0;
-            let html = `<ul class="space-y-3 mb-4">`;
-            cart.forEach((item, i) => {
-                total += Number(item.price);
-                html += `<li class="flex justify-between items-center border-b pb-2 text-sm">
-                    <span>${item.title}</span>
-                    <span class="font-bold text-emerald-700">${item.price} টাকা <button onclick="removeFromCart(${i})" class="text-red-500 ml-2 text-xs">✕</button></span>
-                </li>`;
-            });
-            html += `</ul><div class="border-t pt-2 flex justify-between font-bold text-base"><span>মোট প্রদেয়:</span><span class="text-emerald-800">${total} টাকা</span></div>`;
-            container.innerHTML = html;
-        }
+        // নতুন পণ্য বা এডিট করা পণ্য সেভ করা
+        function saveProduct() {
+            let title = document.getElementById('prodTitle').value;
+            let price = document.getElementById('prodPrice').value;
+            let img = document.getElementById('prodImg').value;
+            let desc = document.getElementById('prodDesc').value;
+            let editIndex = document.getElementById('editIndex').value;
 
-        function removeFromCart(i) {
-            cart.splice(i, 1);
-            document.getElementById('cartBadge').innerText = cart.length;
-            updateCartView();
-        }
-
-        function saveCatalogItem() {
-            const price = document.getElementById('admPrice').value;
-            const category = document.getElementById('admCategory').value;
-            const desc = document.getElementById('admDesc').value;
-            const editIndex = document.getElementById('editIndex').value;
-            const imageFileInput = document.getElementById('admImageFile');
-
-            if(!price || !desc) {
-                alert('দয়া করে মূল্য ও বিবরণ পূরণ করুন!');
+            if(!title || !price) {
+                alert('পণ্যের নাম এবং মূল্য আবশ্যক!');
                 return;
             }
 
-            const processSave = (imgUrl) => {
-                const newItem = {
-                    title: category.includes('combo') ? "স্পেশাল প্রিমিয়াম কম্বো প্যাকেজ" : "ভেষজ প্রিমিয়াম প্রোডাক্ট",
-                    price: price,
-                    category: category || "herbal",
-                    image: imgUrl || (editIndex !== "-1" ? products[editIndex].image : "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600"),
-                    desc: desc
-                };
-
-                if(editIndex === "-1") {
-                    products.push(newItem);
-                } else {
-                    products[editIndex] = newItem;
-                    document.getElementById('editIndex').value = "-1";
-                }
-
-                localStorage.setItem('siteProducts', JSON.stringify(products));
-                renderProducts();
-                
-                document.getElementById('admPrice').value = '';
-                document.getElementById('admCategory').value = '';
-                document.getElementById('admImageFile').value = '';
-                document.getElementById('admDesc').value = '';
-                alert('ক্যাটালগ সফলভাবে সেভ ও আপডেট হয়েছে!');
+            let newProd = {
+                title: title,
+                price: price,
+                img: img || "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500",
+                desc: desc || ""
             };
 
-            if(imageFileInput.files && imageFileInput.files[0]) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    processSave(e.target.result);
-                };
-                reader.readAsDataURL(imageFileInput.files[0]);
+            if(editIndex === "-1") {
+                products.push(newProd); // নতুন যোগ
             } else {
-                const existingImg = editIndex !== "-1" ? products[editIndex].image : "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600";
-                processSave(existingImg);
+                products[editIndex] = newProd; // এডিট আপডেট
+                document.getElementById('editIndex').value = "-1";
             }
+
+            localStorage.setItem('products', JSON.stringify(products));
+            alert('পণ্য সফলভাবে সংরক্ষণ করা হয়েছে!');
+            
+            // ফর্ম ক্লিয়ার করা
+            document.getElementById('prodTitle').value = "";
+            document.getElementById('prodPrice').value = "";
+            document.getElementById('prodImg').value = "";
+            document.getElementById('prodDesc').value = "";
+
+            loadAdminData();
+            renderPublicSite();
         }
 
-        function editCatalogItem(index) {
-            const p = products[index];
-            document.getElementById('admPrice').value = p.price;
-            document.getElementById('admCategory').value = p.category;
-            document.getElementById('admDesc').value = p.desc;
+        // পণ্য এডিট মোডে আনা
+        function editProduct(index) {
+            let p = products[index];
+            document.getElementById('prodTitle').value = p.title;
+            document.getElementById('prodPrice').value = p.price;
+            document.getElementById('prodImg').value = p.img;
+            document.getElementById('prodDesc').value = p.desc;
             document.getElementById('editIndex').value = index;
-            alert('এখন নিচের ফর্মে নতুন ছবি বা তথ্য দিয়ে আপডেট করতে পারেন।');
+            alert('ফর্মের মধ্যে এই পণ্যের তথ্য এসেছে। পরিবর্তন করে আপডেট বাটনে ক্লিক করুন।');
         }
 
-        function deleteCatalogItem(index) {
-            if(confirm('আপনি কি নিশ্চিতভাবে এই ক্যাটালগটি ডিলিট করতে চান?')) {
+        // পণ্য ডিলিট করা
+        function deleteProduct(index) {
+            if(confirm('আপনি কি নিশ্চিতভাবে এই পণ্যটি ডিলিট করতে চান?')) {
                 products.splice(index, 1);
-                localStorage.setItem('siteProducts', JSON.stringify(products));
-                renderProducts();
+                localStorage.setItem('products', JSON.stringify(products));
+                loadAdminData();
+                renderPublicSite();
             }
-        }
-
-        function handleOrder(event) {
-            event.preventDefault();
-            if(cart.length === 0) {
-                alert('আপনার কার্ট খালি!');
-                return;
-            }
-            const name = document.getElementById('custName').value;
-            const phone = document.getElementById('custPhone').value;
-            const address = document.getElementById('custAddress').value;
-
-            let orderSummary = cart.map(item => item.title + ` (${item.price} টাকা)`).join(', ');
-            let total = cart.reduce((sum, item) => sum + Number(item.price), 0);
-
-            const message = `নতুন অর্ডার এসেছে!\n\nগ্রাহক: ${name}\nফোন: ${phone}\nঠিকানা: ${address}\n\nপ্রোডাক্টস: ${orderSummary}\nমোট মূল্য: ${total} টাকা\n\n(নোট: ডেলিভারি চার্জ অর্ডার কনফার্ম করার আগে প্রযোজ্য)`;
-            window.location.href = `https://wa.me/8801910532834?text=${encodeURIComponent(message)}`;
-        }
-
-        // AI Chatbot
-        function toggleAiChat() {
-            document.getElementById('aiChatBox').classList.toggle('hidden');
-        }
-        function sendAiMessage() {
-            const input = document.getElementById('aiUserInput');
-            const messages = document.getElementById('aiChatMessages');
-            if(!input.value.trim()) return;
-            const userText = input.value;
-            messages.innerHTML += `<p class="text-right text-emerald-800 font-bold">আপনি: ${userText}</p>`;
-            input.value = '';
-            setTimeout(() => {
-                messages.innerHTML += `<p class="text-left text-gray-700 bg-emerald-50 p-1 rounded">🤖 এআই: গোপন প্যাকেজিং ও ক্যাশ অন ডেলিভারিতে পার্সেল পাঠানো হয়। পরামর্শ বা কলের জন্য হটলাইন: 01910-532834</p>`;
-                messages.scrollTop = messages.scrollHeight;
-            }, 700);
-        }
-
-        // Massive 1000+ Reviews Pool with Facebook-like Avatars & Different Locations
-        const massiveReviews = [
-            { name: "রিপন আহমেদ", loc: "রাজশাহী", text: "কম্বো প্যাকেজটি ব্যবহার করার পর মাত্র ২০ দিনে শারীরিক দুর্বলতা দূর হয়েছে। শতভাগ কার্যকর!", avatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100" },
-            { name: "নাজমুল হাসান", loc: "ঢাকা", text: "খুব চমৎকার রেজাল্ট পেয়েছি। কোনো সাইড ইফেক্ট ছাড়াই দীর্ঘস্থায়ী শক্তি বৃদ্ধি করে।", avatar: "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=100" },
-            { name: "জহিরুল ইসলাম", loc: "চট্টগ্রাম", text: "আমার দীর্ঘদিনের গোপন সমস্যা নিরাময় হয়েছে। আলহামদুলিল্লাহ অনেক সুস্থ বোধ করছি।", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" },
-            { name: "শফিকুল আলম", loc: "সিলেট", text: "পণ্যগুলো একদম খাঁটি ও জেনুইন। ১০০% গোপন প্যাকেজিং পেয়ে সন্তুষ্ট।", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100" },
-            { name: "আলামিন হোসেন", loc: "খুলনা", text: "অফুরন্ত এনার্জি এবং কাজের স্পৃহা ফিরে পেয়েছি। সারাদিন আর ক্লান্তি আসে না।", avatar: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=100" },
-            { name: "কামরুল হাসান", loc: "বরিশাল", text: "গোপনীয়তা বজায় রেখে দ্রুত হোম ডেলিভারি পেয়েছি। ব্যবহারে দারুণ উপকার পাচ্ছি।", avatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=100" },
-            { name: "মোতালেব হোসেন", loc: "রংপুর", text: "বয়স প্রায় ৫০, তবুও এই কোর্সটি নেওয়ার পর মনে হচ্ছে যেন তারুণ্য ফিরে পেয়েছি!", avatar: "https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=100" },
-            { name: "রাসেল আহমেদ", loc: "ময়মনসিংহ", text: "নিয়মিত ব্যবহারের ফলে মানসিক চাপ ও অবসাদ দূর হয়ে গেছে। মন একদম ফুরফুরে থাকে।", avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100" },
-            { name: "শরিফুল ইসলাম", loc: "কুমিল্লা", text: "খুব ভালো ফলাফল পেয়েছি। সবার জন্যই এই কোর্সটি রেকমেন্ড করছি।", avatar: "https://images.unsplash.com/photo-1628157582853-a796fa650a6a?w=100" },
-            { name: "ইমরান খান", loc: "যশোর", text: "হটলাইনে কল করে ফ্রি পরামর্শ নিয়েছিলাম, উনারা খুব সুন্দরভাবে বুঝিয়ে দিয়েছেন।", avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100" }
-        ];
-
-        let currRev = 0;
-        function startReviewRotator() {
-            setInterval(() => {
-                currRev = (currRev + 1) % massiveReviews.length;
-                const r = massiveReviews[currRev];
-                document.getElementById('reviewAvatar').src = r.avatar;
-                document.getElementById('reviewName').innerText = r.name;
-                document.getElementById('reviewLoc').innerText = r.loc;
-                document.getElementById('reviewText').innerText = `"${r.text}"`;
-            }, 10000); // Swipes every 10 seconds
-        }
-
-        // Massive 500+ Order Notifications Pool (Rotates every 10 seconds)
-        const massiveOrders = [
-            { name: "রফিকুল ইসলাম", loc: "ঢাকা", prod: "স্পেশাল কম্বো প্যাক (৩,৫০০ টাকা)", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" },
-            { name: "নজরুল ইসলাম", loc: "সিলেট", prod: "ভেষজ হালুয়া (১৮০০ টাকা)", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100" },
-            { name: "হাসান মাহমুদ", loc: "রাজশাহী", prod: "স্পেশাল কম্বো প্যাক (৩,৫০০ টাকা)", avatar: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=100" },
-            { name: "তারেক রহমান", loc: "খুলনা", prod: "বীর্য শক্তি বর্ধক বড়ি (২০০০ টাকা)", avatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=100" },
-            { name: "শিপন আহমেদ", loc: "বরিশাল", prod: "স্পেশাল কম্বো প্যাক (৩,৫০০ টাকা)", avatar: "https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=100" },
-            { name: "জাহাঙ্গীর আলম", loc: "রংপুর", prod: "মালিশের তেল ও বড়ি সেট", avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100" },
-            { name: "কামাল হোসেন", loc: "ময়মনসিংহ", prod: "স্পেশাল কম্বো প্যাক (৩,৫০০ টাকা)", avatar: "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=100" }
-        ];
-
-        let currOrd = 0;
-        function startOrderNotifications() {
-            setInterval(() => {
-                currOrd = (currOrd + 1) % massiveOrders.length;
-                const o = massiveOrders[currOrd];
-                const toast = document.getElementById('orderToast');
-                document.getElementById('toastAvatar').src = o.avatar;
-                document.getElementById('toastNameLoc').innerText = `${o.name}, ${o.loc}`;
-                document.getElementById('toastProduct').innerText = o.prod;
-
-                toast.classList.remove('translate-y-20', 'opacity-0');
-                setTimeout(() => {
-                    toast.classList.add('translate-y-20', 'opacity-0');
-                }, 6000); // Shows for 6 seconds, then hides till next 10s interval
-            }, 10000); // Triggers every 10 seconds
-        }
-
-        function openOwnerLogin() {
-            document.getElementById('ownerModal').classList.remove('hidden');
-            if (localStorage.getItem('ownerLoggedIn') === 'true') {
-                document.getElementById('ownerLoginForm').classList.add('hidden');
-                document.getElementById('ownerDashboard').classList.remove('hidden');
-            } else {
-                document.getElementById('ownerLoginForm').classList.remove('hidden');
-                document.getElementById('ownerDashboard').classList.add('hidden');
-            }
-        }
-        function closeOwnerModal() {
-            document.getElementById('ownerModal').classList.add('hidden');
-            if(window.location.hash === '#admin') {
-                history.pushState("", document.title, window.location.pathname);
-            }
-        }
-        function verifyOwner() {
-            if (document.getElementById('ownerEmail').value === MY_SECRET_EMAIL && document.getElementById('ownerPass').value === MY_SECRET_PASS) {
-                localStorage.setItem('ownerLoggedIn', 'true');
-                openOwnerLogin();
-            } else {
-                alert('ভুল জিমেইল অথবা পাসওয়ার্ড!');
-            }
-        }
-        function logoutOwner() {
-            localStorage.setItem('ownerLoggedIn', 'false');
-            openOwnerLogin();
         }
     </script>
+
 </body>
 </html>
