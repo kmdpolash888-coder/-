@@ -315,16 +315,23 @@
 
             <div id="ownerDashboard" class="hidden space-y-4">
                 <div class="bg-emerald-50 p-3 rounded-xl border border-emerald-200">
-                    <p class="text-emerald-800 font-bold text-xs">⚙️ নো-কোড প্রোডাক্ট ও ক্যাটাগরি ম্যানেজমেন্ট</p>
-                    <p class="text-[11px] text-gray-600">এখানে নতুন পণ্য যোগ বা এডিট করতে পারবেন।</p>
+                    <p class="text-emerald-800 font-bold text-xs">⚙️ নো-কোড প্রোডাক্ট ও গ্যালারি ইমেজ ম্যানেজমেন্ট</p>
+                    <p class="text-[11px] text-gray-600">গ্যালারি থেকে ছবি সিলেক্ট করে নতুন পণ্য বা এডিট করতে পারবেন।</p>
                 </div>
 
                 <div class="bg-gray-50 p-3 rounded-xl border space-y-2">
                     <input type="hidden" id="editIndex" value="-1">
-                    <input type="text" id="admTitle" class="w-full px-3 py-1.5 border rounded text-xs" placeholder="পণ্যের শিরোনাম">
-                    <input type="text" id="admPrice" class="w-full px-3 py-1.5 border rounded text-xs" placeholder="মূল্য (যেমন: ৩,৫০৪ টাকা)">
-                    <input type="text" id="admCategory" class="w-full px-3 py-1.5 border rounded text-xs" placeholder="ক্যাটাগরি (যেমন: Sexually Products বা কম্বো প্যাকেজ)">
-                    <textarea id="admDesc" rows="2" class="w-full px-3 py-1.5 border rounded text-xs" placeholder="বিবরণ লিখুন..."></textarea>
+                    <input type="text" id="admTitle" class="w-full px-3 py-1.5 border rounded text-xs bg-white" placeholder="পণ্যের শিরোনাম">
+                    <input type="text" id="admPrice" class="w-full px-3 py-1.5 border rounded text-xs bg-white" placeholder="মূল্য (যেমন: ৩,৫০৪ টাকা)">
+                    <input type="text" id="admCategory" class="w-full px-3 py-1.5 border rounded text-xs bg-white" placeholder="ক্যাটাগরি (যেমন: Sexually Products বা কম্বো প্যাকেজ)">
+                    
+                    <div>
+                        <label class="block text-[11px] font-bold text-gray-700 mb-1">গ্যালারি থেকে পণ্যের ছবি সিলেক্ট করুন:</label>
+                        <input type="file" id="admImgFile" accept="image/*" class="w-full px-3 py-1.5 border rounded text-xs bg-white">
+                    </div>
+
+                    <textarea id="admDesc" rows="2" class="w-full px-3 py-1.5 border rounded text-xs bg-white" placeholder="বিবরণ লিখুন (আনলিমিটেড)..."></textarea>
+                    
                     <button onclick="saveAdminProduct()" class="w-full bg-emerald-700 text-white py-2 rounded text-xs font-bold shadow">+ পণ্য সেভ / আপডেট করুন</button>
                 </div>
 
@@ -383,43 +390,28 @@
             }, 5000);
         }, 15000);
 
-        // Products Database with Categories matching sidebar
+        // Products Database with Categories & Gallery Images
         let products = JSON.parse(localStorage.getItem('siteProducts')) || [
             {
                 title: "প্রাকৃতিক স্ট্যামিনা ও শক্তি বর্ধক ভেষজ হালুয়া",
                 price: "১,৮০০ টাকা",
                 category: "Sexually Products",
+                img: "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=500",
                 desc: "স্নায়বিক ক্লান্তি ও মানসিক অবসাদ দূর করে সারাদিন এনার্জিটিক রাখে।"
             },
             {
                 title: "আয়ুর্বেদিক বীর্য শক্তি বর্ধক ক্যাপসুল",
                 price: "২,২০০ টাকা",
                 category: "যৌন রোগ",
+                img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500",
                 desc: "বীর্যের ঘনত্ব বৃদ্ধি করে দীর্ঘক্ষণ সহবাসের ক্ষমতা প্রদান করে।"
             },
             {
                 title: "মহিলাদের বিশেষ ভেষজ কেয়ার প্যাক",
                 price: "১,৫০০ টাকা",
                 category: "মেয়েদের যৌন রোগ",
+                img: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=500",
                 desc: "মহিলাদের হরমোনাল ব্যালেন্স ও শারীরিক শক্তি বৃদ্ধিতে কার্যকরী।"
-            },
-            {
-                title: "চর্ম ও এলার্জি দূর করার হারবাল আন্টমেন্ট",
-                price: "৯০০ টাকা",
-                category: "চর্ম ও এলার্জি",
-                desc: "যেকোনো চুলকানি ও এলার্জি নিরাময়ে ১০০% প্রাকৃতিক সমাধান।"
-            },
-            {
-                title: "ন্যাচারাল গ্লোইং ফেসওয়াশ ও কসমেটিক্স প্যাক",
-                price: "১,২০০ টাকা",
-                category: "কসমেটিক্স",
-                desc: "ত্বকের উজ্জ্বলতা বাড়াতে এবং ব্রণের দাগ দূর করতে প্রিমিয়াম হারবাল প্যাক।"
-            },
-            {
-                title: "ইমিউনিটি বুস্টার ও হেলথ কেয়ার সিরাপ",
-                price: "১,১০০ টাকা",
-                category: "Health Care",
-                desc: "শরীরের রোগ প্রতিরোধ ক্ষমতা বাড়িয়ে সার্বিক স্বাস্থ্য সুরক্ষা নিশ্চিত করে।"
             }
         ];
 
@@ -466,14 +458,16 @@
             adminContainer.innerHTML = '';
 
             list.forEach((p, index) => {
+                let imgSrc = p.img || "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=500";
                 container.innerHTML += `
-                    <div class="bg-white rounded-2xl shadow-md p-5 border border-emerald-100 flex flex-col justify-between">
-                        <div>
+                    <div class="bg-white rounded-2xl shadow-md overflow-hidden border border-emerald-100 flex flex-col justify-between">
+                        <img src="${imgSrc}" class="w-full h-48 object-cover" alt="Product Image">
+                        <div class="p-5">
                             <span class="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded">${p.category || 'জেনারেল'}</span>
                             <h3 class="font-bold text-emerald-900 text-base mt-1">${p.title}</h3>
                             <p class="text-xs text-gray-600 mt-2">${p.desc}</p>
                         </div>
-                        <div class="mt-4 pt-3 border-t flex items-center justify-between">
+                        <div class="p-5 pt-0 flex items-center justify-between">
                             <span class="font-extrabold text-emerald-700 text-lg">${p.price}</span>
                             <button onclick="addToCart('${p.title}', '${p.price}')" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-xl text-xs font-bold shadow">
                                 🛒 কার্টে নিন
@@ -483,13 +477,14 @@
                 `;
 
                 catalogContainer.innerHTML += `
-                    <div class="bg-white rounded-xl shadow border p-4 flex flex-col justify-between">
-                        <div>
+                    <div class="bg-white rounded-xl shadow border overflow-hidden flex flex-col justify-between">
+                        <img src="${imgSrc}" class="w-full h-36 object-cover" alt="Product Image">
+                        <div class="p-4">
                             <span class="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded">${p.category || 'ক্যাটালগ'}</span>
                             <h3 class="font-bold text-emerald-900 mt-1">${p.title}</h3>
                             <p class="text-xs text-gray-600 mt-1">${p.desc}</p>
                         </div>
-                        <div class="mt-4 flex items-center justify-between">
+                        <div class="p-4 pt-0 flex items-center justify-between">
                             <span class="font-bold text-emerald-700">${p.price}</span>
                             <button onclick="addToCart('${p.title}', '${p.price}')" class="bg-emerald-600 text-white px-3 py-1.5 rounded text-xs font-bold">কার্টে নিন</button>
                         </div>
@@ -500,9 +495,12 @@
             products.forEach((p, index) => {
                 adminContainer.innerHTML += `
                     <div class="bg-white p-3 rounded-lg border flex justify-between items-center text-xs">
-                        <div>
-                            <p class="font-bold text-emerald-900">${p.title} (${p.price})</p>
-                            <p class="text-gray-500">ক্যাটাগরি: ${p.category || 'None'}</p>
+                        <div class="flex items-center space-x-2">
+                            <img src="${p.img || 'https://images.unsplash.com/photo-1540420773420-3366772f4999?w=100'}" class="w-10 h-10 object-cover rounded">
+                            <div>
+                                <p class="font-bold text-emerald-900">${p.title} (${p.price})</p>
+                                <p class="text-gray-500">ক্যাটাগরি: ${p.category || 'None'}</p>
+                            </div>
                         </div>
                         <div class="space-x-1">
                             <button onclick="editProduct(${index})" class="bg-blue-600 text-white px-2.5 py-1 rounded">এডিট</button>
@@ -608,13 +606,29 @@
             const category = document.getElementById('admCategory').value.trim();
             const desc = document.getElementById('admDesc').value.trim();
             const editIndex = document.getElementById('editIndex').value;
+            const fileInput = document.getElementById('admImgFile');
 
             if (!title || !price) {
                 alert('পণ্যের শিরোনাম এবং মূল্য আবশ্যক!');
                 return;
             }
 
-            const item = { title, price, category, desc };
+            let currentImg = editIndex !== "-1" ? (products[editIndex].img || "") : "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=500";
+
+            if (fileInput.files && fileInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const base64Img = e.target.result;
+                    finalizeProductSave(title, price, category, base64Img, desc, editIndex);
+                };
+                reader.readAsDataURL(fileInput.files[0]);
+            } else {
+                finalizeProductSave(title, price, category, currentImg, desc, editIndex);
+            }
+        }
+
+        function finalizeProductSave(title, price, category, img, desc, editIndex) {
+            const item = { title, price, category, img, desc };
             if (editIndex === "-1") {
                 products.push(item);
             } else {
@@ -628,6 +642,7 @@
             document.getElementById('admTitle').value = '';
             document.getElementById('admPrice').value = '';
             document.getElementById('admCategory').value = '';
+            document.getElementById('admImgFile').value = '';
             document.getElementById('admDesc').value = '';
             alert('সফলভাবে সেভ বা আপডেট হয়েছে!');
         }
@@ -639,7 +654,7 @@
             document.getElementById('admCategory').value = p.category || '';
             document.getElementById('admDesc').value = p.desc;
             document.getElementById('editIndex').value = index;
-            alert('ফর্মে তথ্য লোড হয়েছে। পরিবর্তন করে আপডেট করুন।');
+            alert('ফর্মে তথ্য লোড হয়েছে। প্রয়োজনে গ্যালারি থেকে নতুন ছবি সিলেক্ট করে আপডেট করুন।');
         }
 
         function deleteProduct(index) {
