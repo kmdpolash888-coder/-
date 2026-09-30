@@ -18,166 +18,184 @@
             color: #2c3e50;
             line-height: 1.6;
         }
-        /* হেডার ডিজাইন */
+        /* হেডার ডিজাইন (স্ক্রিনশটের সাথে হুবহু মিল রেখে) */
         header {
-            background: #ffffff;
-            padding: 15px 40px;
+            background: #0b6623;
+            padding: 15px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 100;
         }
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .logo-icon {
-            background: #27ae60;
-            color: white;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            font-size: 1.2rem;
+        .logo-box-wrapper {
+            background: #ffffff;
+            padding: 10px 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.1rem;
             font-weight: bold;
-            color: #27ae60;
+            color: #0b6623;
+            line-height: 1.3;
         }
         .hotline-box {
-            background: #e8f8f5;
-            color: #27ae60;
-            padding: 8px 16px;
-            border-radius: 30px;
+            background: #1e8449;
+            color: #ffffff;
+            padding: 10px 18px;
+            border-radius: 25px;
             font-weight: bold;
             font-size: 0.95rem;
-            border: 1px solid #a3e4d7;
-        }
-        .container {
-            max-width: 1150px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-        /* হিরো ব্যানার */
-        .hero-banner {
-            background: linear-gradient(135deg, #16a085, #27ae60);
-            color: white;
-            padding: 50px 30px;
-            border-radius: 15px;
-            text-align: center;
-            margin-bottom: 40px;
-            box-shadow: 0 8px 25px rgba(39, 174, 96, 0.2);
-        }
-        .hero-banner h1 {
-            font-size: 2.4rem;
-            margin-bottom: 12px;
-        }
-        .hero-banner p {
-            font-size: 1.1rem;
-            opacity: 0.95;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        .section-title {
-            text-align: center;
-            margin-bottom: 35px;
-            color: #2c3e50;
-            font-size: 2rem;
-            position: relative;
-            padding-bottom: 10px;
-        }
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 50%;
-            transform: translateX(-50%);
-            width: 80px; height: 3px;
-            background: #27ae60;
-            border-radius: 2px;
-        }
-        /* প্রোডাক্ট ও কম্বো প্যাক গ্রিড */
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
-        .product-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-            transition: transform 0.3s;
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            border: 1px solid #eaeaea;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid #58d68d;
         }
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 0 15px;
         }
-        .product-img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
+
+        /* লাইভ রিভিউ নোটিফিকেশন টিকার বক্স */
+        .live-review-box {
+            background: #e8f8f5;
+            border: 1px solid #a3e4d7;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
         }
-        .product-body {
-            padding: 20px;
-        }
-        .product-title {
-            font-size: 1.25rem;
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 8px;
-        }
-        .product-price {
-            color: #c0392b;
-            font-weight: bold;
-            font-size: 1.2rem;
-            margin-bottom: 12px;
-        }
-        .product-desc {
+        .live-review-title {
             font-size: 0.95rem;
-            color: #555;
+            font-weight: bold;
+            color: #d68910;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .live-review-text {
+            font-size: 0.95rem;
+            color: #2c3e50;
+            font-style: italic;
+        }
+
+        /* স্মার্ট কম্বো প্যাকেজ ডার্ক গ্রিন কার্ড ডিজাইন */
+        .combo-card {
+            background: #0b6623;
+            color: #ffffff;
+            border-radius: 15px;
+            padding: 25px 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(11, 102, 35, 0.25);
+            position: relative;
+        }
+        .smart-badge {
+            background: #f1c40f;
+            color: #000;
+            font-size: 0.8rem;
+            font-weight: bold;
+            padding: 5px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .combo-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+        .combo-subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
             margin-bottom: 20px;
         }
+
+        /* মূল্য ও ডিসকাউন্ট বক্স */
+        .price-inner-box {
+            background: #eafaf1;
+            color: #2c3e50;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            position: relative;
+            border: 1px solid #a9dfbf;
+        }
+        .old-price {
+            font-size: 0.95rem;
+            color: #7f8c8d;
+            text-decoration: line-through;
+            margin-bottom: 5px;
+        }
+        .current-price {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: #0b6623;
+        }
+        .discount-pill {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #f1948a;
+            color: #ffffff;
+            font-size: 0.85rem;
+            font-weight: bold;
+            padding: 6px 14px;
+            border-radius: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* উপকারিতা সেকশন */
+        .benefits-section {
+            background: #ffffff;
+            color: #2c3e50;
+            padding: 18px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-left: 4px solid #f1c40f;
+        }
+
         .btn-order {
             background: #27ae60;
             color: white;
             border: none;
             width: 100%;
-            padding: 12px;
-            border-radius: 6px;
+            padding: 14px;
+            border-radius: 8px;
             cursor: pointer;
             font-weight: bold;
-            font-size: 1rem;
+            font-size: 1.1rem;
             transition: background 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
         .btn-order:hover {
             background: #219653;
         }
 
-        /* হিডেন সিক্রেট ট্রিগার ফুটার */
+        /* ফুটার ও সিক্রেট ট্রিগার */
         .footer {
             text-align: center;
-            padding: 40px;
+            padding: 30px;
             color: #888;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             cursor: pointer;
             user-select: none;
-            margin-top: 60px;
-            border-top: 1px solid #e1e1e1;
+            margin-top: 40px;
             background: #ffffff;
+            border-top: 1px solid #e1e1e1;
         }
 
-        /* লগইন পপআপ মডাল */
+        /* লগইন ও এডমিন প্যানেল স্টাইল */
         #loginModal {
             display: none;
             position: fixed;
@@ -191,9 +209,8 @@
             background: white;
             padding: 35px;
             border-radius: 12px;
-            width: 380px;
+            width: 350px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
         .login-box input {
             width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem;
@@ -203,7 +220,6 @@
         }
         .btn-danger { background: #e74c3c; margin-top: 10px; }
 
-        /* নো-কোড এডমিন কন্ট্রোল প্যানেল ড্যাশবোর্ড */
         #adminDashboard {
             display: none;
             position: fixed;
@@ -211,44 +227,25 @@
             background: #f4f6f9;
             z-index: 10000;
             overflow-y: auto;
-            padding: 30px;
+            padding: 20px;
         }
         .admin-container {
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
             background: white;
-            padding: 35px;
+            padding: 30px;
             border-radius: 12px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
         }
-        .admin-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 20px;
-            margin-bottom: 25px;
-        }
         .form-section {
             background: #f8f9fa;
-            padding: 25px;
+            padding: 20px;
             border-radius: 8px;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             border: 1px solid #e1e1e1;
         }
-        .form-section h3 {
-            margin-bottom: 15px;
-            color: #2c3e50;
-        }
         .form-control {
-            width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem;
-        }
-        .admin-item-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px;
-            border-bottom: 1px solid #eee;
+            width: 100%; padding: 10px; margin-bottom: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem;
         }
     </style>
 </head>
@@ -257,26 +254,49 @@
     <!-- পাবলিক ওয়েবসাইট ফ্রন্টএন্ড -->
     <div id="publicSite">
         <header>
-            <div class="logo-area">
-                <div class="logo-icon"><i class="fa-solid fa-mortar-pestle"></i></div>
-                <div class="logo" id="siteLogoText">আয়ুর্বেদিক ও হোমিওপ্যাথি চিকিৎসালয়</div>
+            <div class="logo-box-wrapper">
+                <div class="logo" id="siteLogoText">🌿 আয়ুর্বেদিক ও হোমিওপ্যাথি চিকিৎসালয়</div>
             </div>
-            <div class="hotline-box"><i class="fa-solid fa-phone-volume"></i> হটলাইন: <span id="siteHotlineText">01910-532834</span></div>
+            <div class="hotline-box">
+                <i class="fa-solid fa-phone-volume"></i> 
+                <span>হটলাইন: <strong id="siteHotlineText">01910-532834</strong></span>
+            </div>
         </header>
 
         <div class="container">
-            <div class="hero-banner">
-                <h1 id="bannerTitle">প্রাকৃতিক ও স্থায়ী সুস্বাস্থ্যর আস্থার প্রতীক</h1>
-                <p id="bannerSub">১০০% ভেষজ উপাদান এবং বিশ্বস্ত হোমিওপ্যাথিক ও আয়ুর্বেদিক কম্বো প্যাকেজের মাধ্যমে আপনার জটিল সমস্যার প্রাকৃতিক সমাধান পান।</p>
+            <!-- সন্তুষ্ট গ্রাহকদের মতামত (লাইভ আপডেট নোটিফিকেশন টিকার) -->
+            <div class="live-review-box">
+                <div class="live-review-title">
+                    <i class="fa-solid fa-star" style="color: #f1c40f;"></i> সন্তুষ্ট গ্রাহকদের মতামত (লাইভ আপডেট):
+                </div>
+                <div class="live-review-text" id="liveReviewText">
+                    "বয়স প্রায় ৫০, তবুও এই কোর্সটি নেওয়ার পর মনে হচ্ছে যেন তারুণ্য ফিরে পেয়েছি। অসাধারণ ফলাফল!" – মোতালেব হোসেন, রংপুর
+                </div>
             </div>
 
-            <h2 class="section-title">আমাদের স্পেশাল কম্বো প্যাকেজসমূহ</h2>
-            <div class="products-grid" id="publicProductGrid">
-                <!-- ডায়নামিক প্রোডাক্ট ও কম্বো প্যাক এখানে লোড হবে -->
+            <!-- কম্বো প্যাকেজ মূল কন্টেন্ট কার্ড (স্ক্রিনশট ডিজাইন অনুযায়ী) -->
+            <div class="combo-card">
+                <div class="smart-badge">Smart Combo Package</div>
+                <div class="combo-title" id="comboTitleText">📦 ১. স্পেশাল প্রিমিয়াম কম্বো প্যাকেজ (বয়স ২৩ থেকে ৭০ বছর)</div>
+                <div class="combo-subtitle" id="comboSubText">শক্তি, সহনশীলতা ও পারফরম্যান্সের সম্পূর্ণ সমাধান</div>
+
+                <!-- মূল্য ও ডিসকাউন্ট বক্স -->
+                <div class="price-inner-box">
+                    <div class="old-price" id="oldPriceText">পূর্বের মূল্য: ৪,৫০০ টাকা</div>
+                    <div class="current-price" id="currentPriceText">বর্তমান মূল্য: ৩,৫০৪ টাকা</div>
+                    <div class="discount-pill">ডিসকাউন্ট অফার!</div>
+                </div>
+
+                <!-- মানসিক ও শারীরিক উপকারিতা বক্স -->
+                <div class="benefits-section" id="benefitsText">
+                    📝 ২. মানসিক-শারীরিক উপকারিতা: পুরুষত্বে আস্থা, আত্মবিশ্বাসে দাপট!
+                </div>
+
+                <button class="btn-order" onclick="orderCombo()"><i class="fa-brands fa-whatsapp"></i> অর্ডার করতে ক্লিক করুন</button>
             </div>
         </div>
 
-        <!-- সিক্রেট ট্রিগার: এখানে ১০ বার ক্লিক করলে লগইন বক্স আসবে -->
+        <!-- ফুটার: এখানে ১০ বার ক্লিক করলে এডমিন প্যানেল আসবে -->
         <div class="footer" id="secretTrigger">
             © ২০২৬ আয়ুর্বেদিক ও হোমিওপ্যাথি চিকিৎসালয়। সর্বস্বত্ব সংরক্ষিত। (এডমিন কন্ট্রোল পয়েন্ট)
         </div>
@@ -297,115 +317,84 @@
     <!-- নো-কোড এডমিন কন্ট্রোল প্যানেল ড্যাশবোর্ড -->
     <div id="adminDashboard">
         <div class="admin-container">
-            <div class="admin-header">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid #ddd; padding-bottom: 15px;">
                 <h2>🛠️ নো-কোড এডমিন কন্ট্রোল প্যানেল</h2>
                 <div>
-                    <button class="btn-primary" style="width: auto; padding: 10px 20px; background: #27ae60;" onclick="exitAdminPanel()">ওয়েবসাইটে ফিরে যান</button>
-                    <button class="btn-primary btn-danger" style="width: auto; padding: 10px 20px;" onclick="logoutAdmin()">লগআউট</button>
+                    <button class="btn-primary" style="background: #27ae60; width: auto; padding: 8px 15px;" onclick="exitAdminPanel()">ওয়েবসাইটে যান</button>
+                    <button class="btn-primary btn-danger" style="width: auto; padding: 8px 15px;" onclick="logoutAdmin()">লগআউট</button>
                 </div>
             </div>
 
-            <!-- ১. সাইট হেডার ও ব্যানার এডিট করার ফর্ম -->
             <div class="form-section">
-                <h3>ওয়েবসাইটের নাম, হটলাইন ও ব্যানার পরিবর্তন</h3>
-                <input type="text" id="editSiteName" class="form-control" placeholder="ওয়েবসাইটের নাম">
-                <input type="text" id="editHotline" class="form-control" placeholder="হটলাইন নম্বর">
-                <input type="text" id="editBannerTitle" class="form-control" placeholder="ব্যানার প্রধান শিরোনাম">
-                <input type="text" id="editBannerSub" class="form-control" placeholder="ব্যানার সাব-টাইটেল বিবরণ">
-                <button class="btn-primary" onclick="saveSiteSettings()">সেটিংস আপডেট করুন</button>
-            </div>
+                <h3>ওয়েবসাইট ও কম্বো প্যাকেজ তথ্য পরিবর্তন করুন</h3>
+                <label>ওয়েবসাইটের নাম:</label>
+                <input type="text" id="editSiteName" class="form-control">
+                
+                <label>হটলাইন নম্বর:</label>
+                <input type="text" id="editHotline" class="form-control">
 
-            <!-- ২. নতুন পণ্য বা কম্বো প্যাক অ্যাড করার ফর্ম -->
-            <div class="form-section">
-                <h3 id="formHeading">নতুন কম্বো প্যাক বা চিকিৎসা পণ্য যোগ করুন</h3>
-                <input type="hidden" id="editIndex" value="-1">
-                <input type="text" id="prodTitle" class="form-control" placeholder="প্যাকেজ বা ওষুধের নাম">
-                <input type="text" id="prodPrice" class="form-control" placeholder="মূল্য (যেমন: ৩,৫০০ টাকা)">
-                <input type="text" id="prodImg" class="form-control" placeholder="ছবির লিংক (Image URL)">
-                <textarea id="prodDesc" class="form-control" rows="3" placeholder="ওষুধ বা কম্বো প্যাকের বিস্তারিত বিবরণ ও উপকারিতা..."></textarea>
-                <button class="btn-primary" onclick="saveProduct()">পণ্য সেভ বা আপডেট করুন</button>
-            </div>
+                <label>লাইভ রিভিউ টেক্সট:</label>
+                <textarea id="editReview" class="form-control" rows="2"></textarea>
 
-            <!-- ৩. বিদ্যমান পণ্য ম্যানেজমেন্ট লিস্ট -->
-            <div class="form-section">
-                <h3>বিদ্যমান কম্বো প্যাক ও পণ্য তালিকা (এডিট বা ডিলিট করুন)</h3>
-                <div class="product-list-admin" id="adminProductList">
-                    <!-- লিস্ট এখানে থাকবে -->
-                </div>
+                <label>কম্বো প্যাকেজের শিরোনাম:</label>
+                <input type="text" id="editComboTitle" class="form-control">
+
+                <label>উপকারিতা বিবরণ:</label>
+                <input type="text" id="editComboSub" class="form-control">
+
+                <label>পূর্বের মূল্য:</label>
+                <input type="text" id="editOldPrice" class="form-control">
+
+                <label>বর্তমান মূল্য:</label>
+                <input type="text" id="editCurrentPrice" class="form-control">
+
+                <label>উপকারিতা পয়েন্ট:</label>
+                <input type="text" id="editBenefits" class="form-control">
+
+                <button class="btn-primary" onclick="saveSettings()">সফলভাবে আপডেট করুন</button>
             </div>
         </div>
     </div>
 
-    <!-- জাভাস্ক্রিপ্ট লজিক -->
+    <!-- জাভাস্ক্রিপ্ট কোড -->
     <script>
-        let siteSettings = JSON.parse(localStorage.getItem('siteSettings')) || {
-            name: "আয়ুর্বেদিক ও হোমিওপ্যাথি চিকিৎসালয়",
+        let siteData = JSON.parse(localStorage.getItem('siteData')) || {
+            name: "🌿 আয়ুর্বেদিক ও হোমিওপ্যাথি চিকিৎসালয়",
             hotline: "01910-532834",
-            banner: "প্রাকৃতিক ও স্থায়ী সুস্বাস্থ্যর আস্থার প্রতীক",
-            sub: "১০০% ভেষজ উপাদান এবং বিশ্বস্ত হোমিওপ্যাথিক ও আয়ুর্বেদিক কম্বো প্যাকেজের মাধ্যমে আপনার জটিল সমস্যার প্রাকৃতিক সমাধান পান।"
+            review: "\"বয়স প্রায় ৫০, তবুও এই কোর্সটি নেওয়ার পর মনে হচ্ছে যেন তারুণ্য ফিরে পেয়েছি। অসাধারণ ফলাফল!\" – মোতালেব হোসেন, রংপুর",
+            comboTitle: "📦 ১. স্পেশাল প্রিমিয়াম কম্বো প্যাকেজ (বয়স ২৩ থেকে ৭০ বছর)",
+            comboSub: "শক্তি, সহনশীলতা ও পারফরম্যান্সের সম্পূর্ণ সমাধান",
+            oldPrice: "পূর্বের মূল্য: ৪,৫০০ টাকা",
+            currentPrice: "বর্তমান মূল্য: ৩,৫০৪ টাকা",
+            benefits: "📝 ২. মানসিক-শারীরিক উপকারিতা: পুরুষত্বে আস্থা, আত্মবিশ্বাসে দাপট!"
         };
-
-        let products = JSON.parse(localStorage.getItem('products')) || [
-            {
-                title: "স্পেশাল ভেষজ পাওয়ার কম্বো প্যাক",
-                price: "৩,৫০০ টাকা",
-                img: "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=600",
-                desc: "শারীরিক দুর্বলতা দূর করতে এবং স্ট্যামিনা বৃদ্ধি করতে এটি ১০০% প্রাকৃতিক উপাদান দিয়ে তৈরি একটি পরীক্ষিত ভেষজ কম্বো প্যাক। কোনো ক্ষতিকর পার্শ্বপ্রতিক্রিয়া নেই।"
-            },
-            {
-                title: "হোমিওপ্যাথিক ভাইটাল এনার্জি বুস্টার",
-                price: "১,৮০০ টাকা",
-                img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600",
-                desc: "প্রতিদিনের ক্লান্তি দূর করতে এবং কাজের দীর্ঘস্থায়ী শক্তি বৃদ্ধিতে অত্যন্ত কার্যকরী প্রিমিয়াম মানের হোমিওপ্যাথিক কম্বো প্যাক।"
-            },
-            {
-                title: "আয়ুর্বেদিক ন্যাচারাল ইমিউনিটি প্যাক",
-                price: "৪,২০০ টাকা",
-                img: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=600",
-                desc: "ইমিউনিটি এবং ইন্টারনাল এনার্জি বুস্ট করার জন্য সেরা প্রাকৃতিক ভেষজ উপাদানগুলোর সমন্বয়ে তৈরি প্রিমিয়াম কম্বো প্যাক।"
-            }
-        ];
 
         let clickCount = 0;
         const myEmail = "polash3305@gmail.com";
         const myPass = "1807polash1994";
 
         window.onload = function() {
-            renderPublicSite();
+            renderSite();
         };
 
-        function renderPublicSite() {
-            document.getElementById('pageTitle').innerText = siteSettings.name;
-            document.getElementById('siteLogoText').innerText = siteSettings.name;
-            document.getElementById('siteHotlineText').innerText = siteSettings.hotline;
-            document.getElementById('bannerTitle').innerText = siteSettings.banner;
-            document.getElementById('bannerSub').innerText = siteSettings.sub;
-
-            let grid = document.getElementById('publicProductGrid');
-            grid.innerHTML = "";
-
-            products.forEach((p, index) => {
-                grid.innerHTML += `
-                    <div class="product-card">
-                        <img src="${p.img}" class="product-img" alt="Product">
-                        <div class="product-body">
-                            <div class="product-title">${p.title}</div>
-                            <div class="product-price">${p.price}</div>
-                            <div class="product-desc">${p.desc}</div>
-                            <button class="btn-order" onclick="orderProduct('${p.title}')"><i class="fa-brands fa-whatsapp"></i> অর্ডার করতে ক্লিক করুন</button>
-                        </div>
-                    </div>
-                `;
-            });
+        function renderSite() {
+            document.getElementById('pageTitle').innerText = siteData.name;
+            document.getElementById('siteLogoText').innerText = siteData.name;
+            document.getElementById('siteHotlineText').innerText = siteData.hotline;
+            document.getElementById('liveReviewText').innerText = siteData.review;
+            document.getElementById('comboTitleText').innerText = siteData.comboTitle;
+            document.getElementById('comboSubText').innerText = siteData.comboSub;
+            document.getElementById('oldPriceText').innerText = siteData.oldPrice;
+            document.getElementById('currentPriceText').innerText = siteData.currentPrice;
+            document.getElementById('benefitsText').innerText = siteData.benefits;
         }
 
-        // হোয়াটসঅ্যাপে সরাসরি অর্ডার পাঠানো
-        function orderProduct(prodName) {
-            let msg = `আসসালামু আলাইকুম, আমি এই কম্বো প্যাকটি অর্ডার করতে চাই: *${prodName}*। দয়া করে বিস্তারিত কনফার্ম করুন।`;
+        function orderCombo() {
+            let msg = `আসসালামু আলাইকুম, আমি এই কম্বো প্যাকটি অর্ডার করতে চাই: *${siteData.comboTitle}* (${siteData.currentPrice})। দয়া করে বিস্তারিত কনফার্ম করুন।`;
             window.open(`https://wa.me/8801910532834?text=${encodeURIComponent(msg)}`, '_blank');
         }
 
-        // ফুটারে ১০ বার ক্লিকের সিক্রেট ট্রিগার
+        // ফুটার সিক্রেট ট্রিগার (১০ বার ক্লিক)
         document.getElementById('secretTrigger').addEventListener('click', function() {
             clickCount++;
             if (clickCount >= 10) {
@@ -419,7 +408,6 @@
             clickCount = 0;
         }
 
-        // জিমেইল ও পাসওয়ার্ড যাচাই
         function verifyLogin() {
             let email = document.getElementById('emailInput').value.trim();
             let pass = document.getElementById('passInput').value.trim();
@@ -427,7 +415,7 @@
             if (email === myEmail && pass === myPass) {
                 document.getElementById('loginModal').style.display = 'none';
                 document.getElementById('adminDashboard').style.display = 'block';
-                loadAdminData();
+                loadAdminForm();
                 document.getElementById('emailInput').value = '';
                 document.getElementById('passInput').value = '';
             } else {
@@ -437,104 +425,39 @@
 
         function exitAdminPanel() {
             document.getElementById('adminDashboard').style.display = 'none';
-            renderPublicSite();
+            renderSite();
         }
 
         function logoutAdmin() {
             document.getElementById('adminDashboard').style.display = 'none';
-            alert('লগআউট করা হয়েছে। এখন ওয়েবসাইট সাধারণ মোডে আছে।');
+            alert('লগআউট করা হয়েছে।');
         }
 
-        function loadAdminData() {
-            document.getElementById('editSiteName').value = siteSettings.name;
-            document.getElementById('editHotline').value = siteSettings.hotline;
-            document.getElementById('editBannerTitle').value = siteSettings.banner;
-            document.getElementById('editBannerSub').value = siteSettings.sub;
-
-            let adminList = document.getElementById('adminProductList');
-            adminList.innerHTML = "";
-
-            products.forEach((p, index) => {
-                adminList.innerHTML += `
-                    <div class="admin-item-row">
-                        <div><b>${p.title}</b> - <span style="color:red;">${p.price}</span></div>
-                        <div>
-                            <button onclick="editProduct(${index})" style="background:#3498db; color:white; border:none; padding:6px 12px; border-radius:4px; cursor:pointer;">এডিট</button>
-                            <button onclick="deleteProduct(${index})" style="background:#e74c3c; color:white; border:none; padding:6px 12px; border-radius:4px; cursor:pointer; margin-left:8px;">ডিলিট</button>
-                        </div>
-                    </div>
-                `;
-            });
+        function loadAdminForm() {
+            document.getElementById('editSiteName').value = siteData.name;
+            document.getElementById('editHotline').value = siteData.hotline;
+            document.getElementById('editReview').value = siteData.review;
+            document.getElementById('editComboTitle').value = siteData.comboTitle;
+            document.getElementById('editComboSub').value = siteData.comboSub;
+            document.getElementById('editOldPrice').value = siteData.oldPrice;
+            document.getElementById('editCurrentPrice').value = siteData.currentPrice;
+            document.getElementById('editBenefits').value = siteData.benefits;
         }
 
-        function saveSiteSettings() {
-            siteSettings.name = document.getElementById('editSiteName').value;
-            siteSettings.hotline = document.getElementById('editHotline').value;
-            siteSettings.banner = document.getElementById('editBannerTitle').value;
-            siteSettings.sub = document.getElementById('editBannerSub').value;
+        function saveSettings() {
+            siteData.name = document.getElementById('editSiteName').value;
+            siteData.hotline = document.getElementById('editHotline').value;
+            siteData.review = document.getElementById('editReview').value;
+            siteData.comboTitle = document.getElementById('editComboTitle').value;
+            siteData.comboSub = document.getElementById('editComboSub').value;
+            siteData.oldPrice = document.getElementById('editOldPrice').value;
+            siteData.currentPrice = document.getElementById('editCurrentPrice').value;
+            siteData.benefits = document.getElementById('editBenefits').value;
 
-            localStorage.setItem('siteSettings', JSON.stringify(siteSettings));
-            alert('সেটিংস সফলভাবে আপডেট হয়েছে!');
-            renderPublicSite();
-        }
-
-        function saveProduct() {
-            let title = document.getElementById('prodTitle').value;
-            let price = document.getElementById('prodPrice').value;
-            let img = document.getElementById('prodImg').value;
-            let desc = document.getElementById('prodDesc').value;
-            let editIndex = document.getElementById('editIndex').value;
-
-            if(!title || !price) {
-                alert('প্যাকেজের নাম এবং মূল্য আবশ্যক!');
-                return;
-            }
-
-            let newProd = {
-                title: title,
-                price: price,
-                img: img || "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=600",
-                desc: desc || ""
-            };
-
-            if(editIndex === "-1") {
-                products.push(newProd);
-            } else {
-                products[editIndex] = newProd;
-                document.getElementById('editIndex').value = "-1";
-            }
-
-            localStorage.setItem('products', JSON.stringify(products));
-            alert('পণ্য সফলভাবে সংরক্ষণ করা হয়েছে!');
-            
-            document.getElementById('prodTitle').value = "";
-            document.getElementById('prodPrice').value = "";
-            document.getElementById('prodImg').value = "";
-            document.getElementById('prodDesc').value = "";
-
-            loadAdminData();
-            renderPublicSite();
-        }
-
-        function editProduct(index) {
-            let p = products[index];
-            document.getElementById('prodTitle').value = p.title;
-            document.getElementById('prodPrice').value = p.price;
-            document.getElementById('prodImg').value = p.img;
-            document.getElementById('prodDesc').value = p.desc;
-            document.getElementById('editIndex').value = index;
-            alert('এই কম্বো প্যাকের তথ্য ফর্মে আনা হয়েছে। এডিট করে সেভ বাটনে ক্লিক করুন।');
-        }
-
-        function deleteProduct(index) {
-            if(confirm('আপনি কি নিশ্চিতভাবে এই প্যাকটি ডিলিট করতে চান?')) {
-                products.splice(index, 1);
-                localStorage.setItem('products', JSON.stringify(products));
-                loadAdminData();
-                renderPublicSite();
-            }
+            localStorage.setItem('siteData', JSON.stringify(siteData));
+            alert('সফলভাবে আপডেট করা হয়েছে!');
+            renderSite();
         }
     </script>
-
 </body>
 </html>
